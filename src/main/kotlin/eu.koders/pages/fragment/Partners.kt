@@ -5,6 +5,8 @@ import eu.koders.utils.*
 import kotlinx.css.*
 import kotlinx.css.properties.borderBottom
 import kotlinx.html.ButtonType
+import org.w3c.dom.HTMLDivElement
+import react.RMutableRef
 import react.RProps
 import react.dom.br
 import react.functionalComponent

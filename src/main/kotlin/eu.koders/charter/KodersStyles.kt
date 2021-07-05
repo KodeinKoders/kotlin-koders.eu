@@ -29,16 +29,16 @@ object KodersStyles : StyleSheet("KodeinStyles", isStatic = true) {
     }
 
     val display3 by css {
-        fontSize = 4.rem
+        fontSize = 4.5.rem
         lineHeight = 1.25.em.lh
         letterSpacing = 0.025.em
         fontFamily = piconExtended
         fontWeight = FontWeight.medium
         textAlign = TextAlign.center
 
-        maxSize(980) { fontSize = 3.rem  }
-        maxSize(775) { fontSize = 2.75.rem  }
-        maxSize(570) { fontSize = 2.25.rem  }
+        maxSize(980) { fontSize = 3.5.rem  }
+        maxSize(775) { fontSize = 3.rem  }
+        maxSize(570) { fontSize = 2.5.rem  }
     }
 
     val display2 by css {
@@ -117,7 +117,7 @@ object KodersStyles : StyleSheet("KodeinStyles", isStatic = true) {
         display = Display.flex
         flexDirection = FlexDirection.row
         alignItems = Align.center
-        padding(vertical = 0.3.rem, horizontal = 1.rem)
+        padding(0.3.rem, 1.rem, 0.1.rem, 1.rem)
         backgroundColor = KodersColors.orange
         color = KodersColors.cute.withAlpha(0.8)
         borderRadius = 2.rem
