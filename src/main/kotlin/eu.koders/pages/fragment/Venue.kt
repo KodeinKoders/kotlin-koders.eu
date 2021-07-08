@@ -45,7 +45,7 @@ val Venue = functionalComponent<RProps> {
             margin(LinearDimension.auto)
         }
 
-        styledImg(src = "/imgs/pan_piper_auditorium.jpg") {
+        styledImg(src = "imgs/pan_piper_auditorium.jpg") {
             css {
                 width = 100.pct
                 objectFit = ObjectFit.cover

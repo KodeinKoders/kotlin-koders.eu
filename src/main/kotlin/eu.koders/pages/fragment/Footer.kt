@@ -87,7 +87,7 @@ val Footer = functionalComponent<RProps> {
                         transition("marginRight", duration = 0.15.s)
                         zIndex = 1001
                     }
-                    styledImg(src = "/imgs/logo-orange-fat.svg") {
+                    styledImg(src = "imgs/logo-orange-fat.svg") {
                         attrs {
                             width = "30"
                             height = "38"
