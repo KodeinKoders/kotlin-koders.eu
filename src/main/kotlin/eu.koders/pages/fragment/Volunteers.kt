@@ -14,7 +14,7 @@ val Volunteers = functionalComponent<RProps> {
     styledP {
         css {
             +koders.chapo
-            color = Color.koders.korail
+            color = Color.koders.orange
             specific {
                 textAlign = TextAlign.center
             }

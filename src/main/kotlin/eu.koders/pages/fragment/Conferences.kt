@@ -8,29 +8,49 @@ import kotlinx.html.ButtonType
 import react.RProps
 import react.child
 import react.dom.br
+import react.dom.div
 import react.functionalComponent
 import styled.*
 
 val Conferences = functionalComponent<RProps> {
     flexRow(justifyContent = JustifyContent.center, alignItems = Align.center) {
-        styledDiv { css { flexGrow = 1.0 } }
-
-        child(Shootout) {
-            attrs.number = "1"
-            attrs.desc = "Day"
+        css {
+            maxWidth = 75.pct
+            margin(0.rem, LinearDimension.auto)
+            maxWidth(980) {
+                flexDirection = FlexDirection.column
+            }
         }
 
-        child(Shootout) {
-            attrs.number = "2"
-            attrs.desc = "Tracks"
+        flexRow {
+            css {
+                maxWidth(980) {
+                    marginBottom = 1.rem
+                }
+            }
+
+            child(Shootout) {
+                attrs.number = "1"
+                attrs.desc = "Day"
+            }
+
+            child(Shootout) {
+                attrs.number = "250+"
+                attrs.desc = "Attendees"
+            }
         }
 
-        child(Shootout) {
-            attrs.number = "20+"
-            attrs.desc = "Speakers"
-        }
+        flexRow {
+            child(Shootout) {
+                attrs.number = "2"
+                attrs.desc = "Tracks"
+            }
 
-        styledDiv { css { flexGrow = 1.0 } }
+            child(Shootout) {
+                attrs.number = "20+"
+                attrs.desc = "Speakers"
+            }
+        }
     }
 
     styledDiv { css { flexGrow = 1.0 } }
@@ -38,7 +58,7 @@ val Conferences = functionalComponent<RProps> {
     styledP {
         css {
             +koders.chapo
-            color = Color.koders.korail
+            color = Color.koders.orange
             specific {
                 textAlign = TextAlign.center
             }
@@ -70,7 +90,10 @@ external interface ShootoutProps : RProps {
 
 private val Shootout = functionalComponent<ShootoutProps> { props ->
     flexColumn(justifyContent = JustifyContent.center, alignItems = Align.center) {
-        css { width = 20.rem }
+        css {
+            flexGrow = 1.0
+            width = 15.rem
+        }
 
         styledP {
             css {
