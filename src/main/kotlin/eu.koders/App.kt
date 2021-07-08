@@ -1,5 +1,6 @@
 package eu.koders
 
+import eu.koders.charter.koders
 import eu.koders.pages.Page
 import eu.koders.utils.maxSize
 import eu.koders.utils.minSize
@@ -7,6 +8,7 @@ import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.css.*
 import kotlinx.css.properties.TextDecoration
+import kotlinx.css.properties.borderBottom
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
 import react.child

@@ -1,13 +1,11 @@
 package eu.koders.pages.fragment
 
-import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.utils.*
 import kotlinext.js.jsObject
 import kotlinx.browser.window
 import kotlinx.css.*
 import kotlinx.css.properties.*
-import kotlinx.html.ButtonType
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLImageElement
@@ -17,12 +15,7 @@ import react.dom.attrs
 import react.dom.br
 import styled.*
 
-
-external interface HeaderProps : RProps {
-    var onScrollClick: () -> Unit
-}
-
-val Header = functionalComponent<HeaderProps> { props ->
+val Header = functionalComponent<RProps> {
 
     val scrollIndicatorRef = useRef<HTMLDivElement>()
 
@@ -67,7 +60,7 @@ val Header = functionalComponent<HeaderProps> { props ->
             }
 
             // Desktop header
-            styledP {
+            styledDiv {
                 css {
                     +koders.display3
                     color = Color.koders.kaumon
@@ -98,7 +91,7 @@ val Header = functionalComponent<HeaderProps> { props ->
             }
 
             // Mobile header
-            styledP {
+            styledDiv {
                 css {
                     +koders.display3
                     color = Color.koders.kaumon
@@ -211,11 +204,18 @@ val Header = functionalComponent<HeaderProps> { props ->
             }
         }
 
-        child(ScrollIndicator, props)
+        child(ScrollIndicator) {
+            attrs.onScrollClick = { println("SCROLL") }
+        }
     }
 }
 
-private val ScrollIndicator = functionalComponent<HeaderProps>("ScrollIndicator") { props ->
+
+external interface ScrollIndicatorProps : RProps {
+    var onScrollClick: () -> Unit
+}
+
+private val ScrollIndicator = functionalComponent<ScrollIndicatorProps>("ScrollIndicator") { props ->
     var isTop by useState(true)
     var isVisible by useState(false)
     val img = useRef<HTMLImageElement>()

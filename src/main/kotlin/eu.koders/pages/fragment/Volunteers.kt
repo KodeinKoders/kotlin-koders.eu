@@ -1,83 +1,37 @@
 package eu.koders.pages.fragment
 
 import eu.koders.charter.koders
-import eu.koders.utils.flexColumn
-import eu.koders.utils.hairline
-import eu.koders.utils.landscapeMobile
-import eu.koders.utils.maxSize
+import eu.koders.utils.*
 import kotlinx.css.*
+import kotlinx.css.properties.borderBottom
 import kotlinx.html.ButtonType
 import react.RProps
 import react.dom.br
 import react.functionalComponent
-import styled.css
-import styled.styledButton
-import styled.styledP
-import styled.styledSpan
+import styled.*
 
-val Volunteers = functionalComponent<RProps>() {
-    flexColumn {
+val Volunteers = functionalComponent<RProps> {
+    styledP {
         css {
-            width = 100.pct
-            height = 100.vh
-            backgroundColor = Color.koders.klycine
-        }
-
-        styledP {
-            css {
-                +koders.display3
-                color = Color.koders.kinzolin
-                marginTop = 1.rem
-                specific {
-                    fontWeight = FontWeight.hairline
-                    textAlign = TextAlign.center
-                }
+            +koders.chapo
+            color = Color.koders.korail
+            specific {
+                textAlign = TextAlign.center
             }
+            margin(LinearDimension.auto, 4.rem)
 
-            +"Volunteers"
-        }
-
-        styledSpan {
-            css {
-                display = Display.block
-                width = 0.05.rem
-                height = 5.rem
-                opacity = .7
-                backgroundColor = Color.koders.kinzolin
-                margin(LinearDimension.auto, LinearDimension.auto)
-                maxSize(768) {
-                    height = 3.rem
-                    margin(LinearDimension.auto, LinearDimension.auto)
-                }
-                landscapeMobile {
-                    margin(1.rem, LinearDimension.auto)
-                }
+            "a" {
+                color = Color.koders.krouille
+                borderBottom(0.05.rem, BorderStyle.solid, Color.koders.krouille)
             }
         }
 
-        styledP {
-            css {
-                +koders.body
-                color = Color.koders.kinzolin
-                specific {
-                    textAlign = TextAlign.center
-                }
-                margin(0.5.rem, LinearDimension.auto)
-            }
-
-            +"Do you want to see the event from the inside?"
-            br {}
-            +"Fill the form to take part to the adventure as a volunteer."
+        +"Do you want to see the event from the inside?"
+        br {}
+        +"To take part to the adventure as a volunteer please contact us at "
+        styledA(href = "mailto:contact@kodein.net") {
+            +"contact@kodein.net"
         }
-
-        styledButton(type = ButtonType.button) {
-            css {
-                border = "none"
-                +koders.button
-                margin(1.rem, LinearDimension.auto)
-            }
-
-            +"VOLUNTEER FORM"
-        }
+        +"."
     }
 }
