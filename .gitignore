@@ -5,7 +5,7 @@
 
 # SYSTEM FILES
 *~
-.DS_STORE
+*.DS_Store
 
 # GRADLE
 .gradle
