@@ -72,7 +72,10 @@ val Conferences = functionalComponent<RProps> {
 
     styledDiv { css { flexGrow = 1.0 } }
 
-    styledA(href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc") {
+    styledA(
+        href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
+        target = "_blank"
+    ) {
         css {
             border = "none"
             +koders.button
@@ -96,6 +99,9 @@ private val Shootout = functionalComponent<ShootoutProps> { props ->
         css {
             flexGrow = 1.0
             width = 15.rem
+            portraitMobile {
+                width = 12.rem
+            }
         }
 
         styledP {

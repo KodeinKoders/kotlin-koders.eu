@@ -29,9 +29,16 @@ val Header = functionalComponent<RProps> {
         styledDiv {
             css {
                 flexGrow = 1.0
-                landscapeMobile {
+                maxWidth(1280) {
                     display = Display.none
                 }
+            }
+        }
+
+        styledImg(src = "imgs/kotlin-koders-logo.svg") {
+            css {
+                width = 10.rem
+                margin(1.5.rem, LinearDimension.auto)
             }
         }
 
@@ -132,12 +139,11 @@ val Header = functionalComponent<RProps> {
             css {
                 display = Display.block
                 width = 0.05.rem
-                height = 7.rem
+                height = 5.rem
                 opacity = .7
                 backgroundColor = Color.koders.kaumon
                 margin(1.rem, LinearDimension.auto)
                 portraitMobile {
-                    height = 5.rem
                     margin(0.rem, LinearDimension.auto, 2.rem)
 
                     maxHeight(640) {
@@ -145,8 +151,7 @@ val Header = functionalComponent<RProps> {
                     }
                 }
                 landscapeMobile {
-                    height = 3.rem
-                    margin(0.rem, LinearDimension.auto, 1.rem)
+                    display = Display.none
                 }
             }
         }
@@ -167,11 +172,14 @@ val Header = functionalComponent<RProps> {
             +"A conference for all Kotlin developers."
         }
 
-        styledA(href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc") {
+        styledA(
+            href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
+            target = "_blank"
+        ) {
             css {
                 border = "none"
                 +koders.button
-                margin(3.rem, LinearDimension.auto)
+                margin(1.rem, LinearDimension.auto)
                 landscapeMobile {
                     margin(0.5.rem, LinearDimension.auto)
                 }
@@ -180,7 +188,14 @@ val Header = functionalComponent<RProps> {
             +"SUBMIT YOUR TALK"
         }
 
-        styledDiv { css { flexGrow = 1.0 } }
+        styledDiv {
+            css {
+                flexGrow = 2.0
+                maxWidth(1280) {
+                    display = Display.none
+                }
+            }
+        }
     }
 
     flexRow(JustifyContent.center) {
@@ -189,7 +204,7 @@ val Header = functionalComponent<RProps> {
             position = Position.absolute
             width = 6.rem
             left = 50.pct - 3.rem
-            bottom = 3.rem
+            bottom = 2.rem
             +koders.body
             portraitMobile {
                 specific { fontSize = 0.8.rem }

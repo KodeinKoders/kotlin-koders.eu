@@ -2,6 +2,7 @@ package eu.koders.pages.fragment
 
 import eu.koders.charter.koders
 import eu.koders.components.Section
+import eu.koders.utils.landscapeMobile
 import kotlinx.css.*
 import kotlinx.css.properties.borderBottom
 import kotlinx.html.ButtonType
@@ -36,15 +37,16 @@ val Partners = functionalComponent<RProps>() {
         +"."
     }
 
-    /* TODO finalize de sponsor deck
-    styledButton(type = ButtonType.button) {
+    styledA(href = "files/KK21_Partnership_EN.pdf", target = "_blank") {
         css {
             border = "none"
             +koders.button
-            margin(2.rem, LinearDimension.auto)
+            margin(3.rem, LinearDimension.auto)
+            landscapeMobile {
+                margin(0.5.rem, LinearDimension.auto)
+            }
         }
 
         +"GET THE SPONSOR DECK"
     }
-    */
 }
