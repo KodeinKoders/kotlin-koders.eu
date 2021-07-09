@@ -35,7 +35,7 @@ val Conferences = functionalComponent<RProps> {
             }
 
             child(Shootout) {
-                attrs.number = "250+"
+                attrs.number = "250"
                 attrs.desc = "Attendees"
             }
         }
@@ -72,11 +72,14 @@ val Conferences = functionalComponent<RProps> {
 
     styledDiv { css { flexGrow = 1.0 } }
 
-    styledButton(type = ButtonType.button) {
+    styledA(href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc") {
         css {
             border = "none"
             +koders.button
-            margin(2.rem, LinearDimension.auto)
+            margin(3.rem, LinearDimension.auto)
+            landscapeMobile {
+                margin(0.5.rem, LinearDimension.auto)
+            }
         }
 
         +"SUBMIT YOUR TALK"
