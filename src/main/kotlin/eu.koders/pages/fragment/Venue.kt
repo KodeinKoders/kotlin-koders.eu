@@ -17,25 +17,11 @@ val Venue = functionalComponent<RProps> {
     flexRow {
         css {
             maxWidth(980) {
-                flexDirection = FlexDirection.column
+                flexDirection = FlexDirection.columnReverse
             }
         }
 
         child(Photos)
-
-        styledSpan {
-            css {
-                display = Display.block
-                width = 0.05.rem
-                opacity = .7
-                backgroundColor = Color.koders.kuivre
-                margin(1.rem, LinearDimension.auto)
-                maxWidth(980) {
-                    display = Display.none
-                }
-            }
-        }
-
         child(Map)
     }
 }
@@ -44,25 +30,83 @@ private val Photos = functionalComponent<RProps> {
     flexColumn(justifyContent = JustifyContent.center, alignItems = Align.center) {
         css {
             width = 50.vw
+            padding(0.rem, 1.rem)
             maxWidth(980) {
-                width = 100.vw
+                width = 90.vw
             }
         }
 
-        styledDiv {
+        flexRow {
             css {
-                margin(LinearDimension.auto)
-                padding(3.rem)
                 maxWidth(980) {
-                    padding(1.rem)
+                    flexDirection = FlexDirection.column
                 }
             }
 
-            styledImg(src = "imgs/pan_piper_auditorium.jpg") {
-                css {
-                    width = 100.pct
-                    objectFit = ObjectFit.cover
-                    clipPath = "polygon(0% 0%, calc(100% - ${3.rem}) 0%, 100% calc(0% + ${3.rem}), 100% 100%, calc(0% + ${3.rem}) 100%, 0% calc(100% - ${3.rem}))"
+            child(Photo) {
+                attrs.index = 1
+            }
+
+            child(Photo) {
+                attrs.index = 2
+            }
+        }
+
+        flexRow {
+            css {
+                maxWidth(980) {
+                    flexDirection = FlexDirection.column
+                }
+            }
+
+            child(Photo) {
+                attrs.index = 3
+            }
+
+            child(Photo) {
+                attrs.index = 4
+            }
+        }
+
+    }
+}
+
+external interface PhotoProps : RProps {
+    var index: Int
+}
+
+private val bezelLeft = "polygon(calc(0% + ${3.rem}) 0%, 100% 0, 100% calc(100% - ${3.rem}), calc(100% - ${3.rem}) 100%, 0 100%, 0% calc(0% + ${3.rem}));"
+private val bezelRight = "polygon(0% 0%, calc(100% - ${3.rem}) 0%, 100% calc(0% + ${3.rem}), 100% 100%, calc(0% + ${3.rem}) 100%, 0% calc(100% - ${3.rem}))"
+
+private val Photo = functionalComponent<PhotoProps> { props ->
+
+    styledDiv {
+        css {
+            margin(LinearDimension.auto)
+            when(props.index) {
+                1, 3 -> paddingRight = 0.5.rem
+                else -> {}
+            }
+            maxWidth(980) {
+                paddingRight = 0.rem
+            }
+        }
+
+        styledImg(src = "imgs/pan_piper_${props.index}.jpg") {
+            css {
+                width = 100.pct
+                objectFit = ObjectFit.cover
+                clipPath = when(props.index) {
+                    1, 4 -> bezelLeft
+                    2, 3 -> bezelRight
+                    else -> error("We want only 4 images here.")
+                }
+                maxWidth(980) {
+                    clipPath = when(props.index) {
+                        1, 3 -> bezelLeft
+                        2, 4 -> bezelRight
+                        else -> error("We want only 4 images here.")
+                    }
                 }
             }
         }
