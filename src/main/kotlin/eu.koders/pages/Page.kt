@@ -2,6 +2,10 @@ package eu.koders.pages
 
 import eu.koders.components.Section
 import eu.koders.pages.fragment.*
+import eu.koders.utils.maxWidth
+import kotlinx.css.LinearDimension
+import kotlinx.css.height
+import kotlinx.css.vh
 import org.w3c.dom.HTMLElement
 import react.RProps
 import react.child
@@ -40,6 +44,14 @@ val Page = functionalComponent<RProps>() {
     child(Section) {
         attrs.title = "Venue"
         attrs.index = 4
+        attrs.css = {
+            it.apply {
+                height = 100.vh
+                maxWidth(980) {
+                    height = LinearDimension.auto
+                }
+            }
+        }
 
         child(Venue)
     }

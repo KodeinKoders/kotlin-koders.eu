@@ -14,6 +14,7 @@ external interface SectionProps : RProps {
     var index: Int
     var title: String
     var ratio: Double?
+    var css: ((CSSBuilder) -> Unit)?
 }
 
 val Section = functionalComponent<SectionProps> { props ->
@@ -24,6 +25,7 @@ val Section = functionalComponent<SectionProps> { props ->
                 height = (it * 100).vh
             }
             backgroundColor = Color.koders.kaumon.withAlpha(1 - (0.2 * props.index))
+            props.css?.invoke(this)
         }
 
         styledP {
