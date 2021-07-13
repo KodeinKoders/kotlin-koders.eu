@@ -3,12 +3,13 @@ package eu.koders.pages.fragment
 import eu.koders.charter.koders
 import eu.koders.utils.*
 import kotlinext.js.jsObject
+import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.css.*
 import kotlinx.css.properties.*
 import kotlinx.html.js.onClickFunction
-import org.w3c.dom.HTMLDivElement
-import org.w3c.dom.HTMLImageElement
+import org.w3c.dom.*
+import org.w3c.dom.ScrollBehavior
 import org.w3c.dom.events.EventListener
 import react.*
 import react.dom.attrs
@@ -17,9 +18,10 @@ import styled.*
 
 val Header = functionalComponent<RProps> {
 
-    val scrollIndicatorRef = useRef<HTMLDivElement>()
+    val div = useRef<HTMLDivElement>()
 
     flexColumn {
+        ref = div
         css {
             width = 100.pct
             height = 100.vh
@@ -199,7 +201,6 @@ val Header = functionalComponent<RProps> {
     }
 
     flexRow(JustifyContent.center) {
-        ref = scrollIndicatorRef
         css {
             position = Position.absolute
             width = 6.rem
@@ -220,7 +221,11 @@ val Header = functionalComponent<RProps> {
         }
 
         child(ScrollIndicator) {
-            attrs.onScrollClick = { println("SCROLL") }
+            attrs.onScrollClick = {
+                val (_, offsetTop) = div.current!!.recursiveOffset()
+                val clientHeight = div.current!!.clientHeight
+                window.scrollTo(ScrollToOptions(top = (offsetTop + clientHeight).toDouble(), behavior = ScrollBehavior.SMOOTH))
+            }
         }
     }
 }
