@@ -7,6 +7,8 @@ import eu.koders.data.Data
 import eu.koders.data.Speaker
 import eu.koders.utils.*
 import kotlinx.css.*
+import kotlinx.css.properties.s
+import kotlinx.css.properties.transition
 import kotlinx.html.ButtonType
 import react.RProps
 import react.child
@@ -68,13 +70,10 @@ val Conferences = functionalComponent<RProps> {
         }
     }
 
-    styledDiv {
+    flexRow(justifyContent = JustifyContent.center) {
         css {
-            display = Display.flex
-            flexDirection = FlexDirection.row
             flexWrap = FlexWrap.wrap
             maxWidth = 68.rem
-            justifyContent = JustifyContent.center
             margin(LinearDimension.auto)
         }
 
@@ -82,13 +81,18 @@ val Conferences = functionalComponent<RProps> {
             .sortedBy { it.data.name }
             .plus(Data("next", Speaker("...stay tuned!", "")))
             .forEach { speaker ->
-                styledDiv {
+                styledA(href = "#/speaker/${speaker.id}") {
                     css {
                         display = Display.flex
                         flexDirection = FlexDirection.row
                         alignItems = Align.center
                         width = 20.rem
                         margin(1.rem)
+                        color = Color.koders.krouille
+                        transition(::color, 0.3.s)
+                        hover {
+                            color = KodersColors.kamethiste
+                        }
                     }
                     styledImg(src = "/imgs/speakers/${speaker.id}.jpeg") {
                         css {
@@ -102,7 +106,6 @@ val Conferences = functionalComponent<RProps> {
                             fontFamily = koders.piconExtended
                             fontWeight = FontWeight.w900
                             fontSize = 1.4.rem
-                            color = Color.koders.krouille
                         }
                         speaker.data.name.uppercase().split(" ").forEach {
                             +it

@@ -1,10 +1,13 @@
 package eu.koders.pages.fragment
 
+import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.data.Session
 import eu.koders.utils.*
 import kotlinx.css.*
 import kotlinx.css.properties.borderBottom
+import kotlinx.css.properties.s
+import kotlinx.css.properties.transition
 import kotlinx.html.ButtonType
 import react.RProps
 import react.child
@@ -81,8 +84,14 @@ val Workshops = functionalComponent<RProps> {
                         fontFamily = koders.picon
                         color = Color.koders.krouille
                         margin(1.5.rem, 1.rem)
+                        "a" {
+                            transition(::color, 0.3.s)
+                            hover {
+                                color = KodersColors.kamethiste
+                            }
+                        }
                     }
-                    styledSpan {
+                    styledA(href = "#/workshop/${workshop.id}") {
                         css {
                             fontWeight = FontWeight.w900
                             fontSize = 1.8.rem

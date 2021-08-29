@@ -3,6 +3,7 @@ package eu.koders.pages.fragment
 import eu.koders.charter.koders
 import eu.koders.components.Section
 import eu.koders.data.Sponsor
+import eu.koders.utils.flexRow
 import eu.koders.utils.landscapeMobile
 import kotlinx.css.*
 import kotlinx.css.properties.borderBottom
@@ -34,13 +35,10 @@ val Partners = functionalComponent<RProps>() {
 
     Sponsor.Type.values().forEach { type ->
         Sponsor.all.filter { it.data.type == type }.forEach { sponsor ->
-            styledDiv {
+            flexRow(justifyContent = JustifyContent.center) {
                 css {
-                    display = Display.flex
-                    flexDirection = FlexDirection.row
                     flexWrap = FlexWrap.wrap
                     maxWidth = 68.rem
-                    justifyContent = JustifyContent.center
                     margin(LinearDimension.auto)
                 }
                 styledA(href = sponsor.data.url, target = "_blank") {

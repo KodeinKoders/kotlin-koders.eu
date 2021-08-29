@@ -1,19 +1,21 @@
 package eu.koders.pages
 
+import eu.koders.RouteProps
+import eu.koders.components.Popup
 import eu.koders.components.Section
 import eu.koders.pages.fragment.*
 import eu.koders.utils.maxWidth
 import kotlinx.css.LinearDimension
 import kotlinx.css.height
 import kotlinx.css.ruleSet
-import kotlinx.css.vh
-import org.w3c.dom.HTMLElement
-import react.RProps
 import react.child
+import react.dom.h1
 import react.functionalComponent
-import react.useRef
+import react.router.dom.useHistory
 
-val Page = functionalComponent<RProps> {
+val Page = functionalComponent<RouteProps> { props ->
+    val history = useHistory()
+
     child(Header)
 
     child(Section) {
@@ -50,4 +52,23 @@ val Page = functionalComponent<RProps> {
     }
 
     child(Footer)
+
+    val section = props.section
+    val id = props.id
+    if (section != null && id != null) {
+        child(Popup) {
+            attrs {
+                onClick = {
+                    history.push("/")
+                }
+            }
+            when (section) {
+                "speaker" -> {
+                    child(SpeakerInfo) {
+                        attrs.id = id
+                    }
+                }
+            }
+        }
+    }
 }

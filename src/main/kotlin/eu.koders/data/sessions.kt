@@ -13,7 +13,12 @@ sealed class Session {
     abstract val speakers: List<Data<Speaker>>
     abstract val abstract: RRender
 
-    companion object : DataHolder<Session>()
+    companion object : DataHolder<Session>() {
+        fun load() {
+            Workshop.all
+            Talk.all
+        }
+    }
 
     data class Talk(
         override val title: String,
@@ -70,7 +75,7 @@ sealed class Session {
             )
             val ArrowMetaSerialization by Talk(
                 title = "Extending kotlinx.serialization functionality with Arrow Meta",
-                speakers = listOf(Speaker.JohnOReilly),
+                speakers = listOf(Speaker.KarinAleksandraMonoid),
                 abstract = {
                     p {
                         +"Migrating from Jackson to kotlinx.serialization may be quite a challenge due to differences in approaches."

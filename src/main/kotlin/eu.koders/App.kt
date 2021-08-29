@@ -1,6 +1,7 @@
 package eu.koders
 
 import eu.koders.charter.koders
+import eu.koders.data.Session
 import eu.koders.pages.Page
 import eu.koders.utils.maxSize
 import eu.koders.utils.minSize
@@ -11,8 +12,11 @@ import kotlinx.css.properties.TextDecoration
 import kotlinx.css.properties.borderBottom
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
+import react.RProps
 import react.child
 import react.dom.render
+import react.router.dom.hashRouter
+import react.router.dom.route
 import styled.injectGlobal
 
 val appGlobalStyle: CSSBuilder.() -> Unit = {
@@ -50,14 +54,25 @@ val appGlobalStyle: CSSBuilder.() -> Unit = {
     }
 }
 
+external interface RouteProps : RProps {
+    var section: String?
+    var id: String?
+}
+
 fun main() {
     injectGlobal(appGlobalStyle)
+
+    Session.load()
 
     window.onload = {
         val element = document.getElementById("page") ?: error("Could not find page element")
 
         render(element) {
-            child(Page)
+            hashRouter {
+                route<RouteProps>("/:section?/:id?") {
+                    child(Page, it.match.params)
+                }
+            }
         }
     }
 }
