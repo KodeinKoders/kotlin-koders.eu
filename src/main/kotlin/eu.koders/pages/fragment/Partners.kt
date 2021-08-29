@@ -2,6 +2,7 @@ package eu.koders.pages.fragment
 
 import eu.koders.charter.koders
 import eu.koders.components.Section
+import eu.koders.data.Sponsor
 import eu.koders.utils.landscapeMobile
 import kotlinx.css.*
 import kotlinx.css.properties.borderBottom
@@ -28,25 +29,59 @@ val Partners = functionalComponent<RProps>() {
             }
         }
 
-        +"You want to give your brand some visibility or increase your popularity among Kotlin developers?"
-        br { }
-        +"For partnership opportunities, contact us at "
-        styledA(href = "mailto:contact@kodein.net") {
-            +"contact@kodein.net"
-        }
-        +"."
+        +"This community event would not exist without our amazing partners!"
     }
 
-    styledA(href = "files/KK21_Partnership_EN.pdf", target = "_blank") {
+    Sponsor.Type.values().forEach { type ->
+        Sponsor.all.filter { it.data.type == type }.forEach { sponsor ->
+            styledDiv {
+                css {
+                    display = Display.flex
+                    flexDirection = FlexDirection.row
+                    flexWrap = FlexWrap.wrap
+                    maxWidth = 68.rem
+                    justifyContent = JustifyContent.center
+                    margin(LinearDimension.auto)
+                }
+                styledA(href = sponsor.data.url, target = "_blank") {
+                    css {
+                        display = Display.flex
+                        flexDirection = FlexDirection.row
+                        alignItems = Align.center
+                        width = 15.rem
+                        height = 4.2.rem
+                        margin(1.rem)
+                    }
+                    styledImg(src = "/imgs/sponsors/${sponsor.id}.png") {
+                        css {
+                            maxWidth = 100.pct
+                            maxHeight = 100.pct
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    styledP {
         css {
-            border = "none"
-            +koders.button
-            margin(3.rem, LinearDimension.auto)
-            landscapeMobile {
-                margin(0.5.rem, LinearDimension.auto)
+            +koders.body
+            color = Color.koders.orange
+            specific {
+                textAlign = TextAlign.center
+            }
+            margin(LinearDimension.auto, 4.rem)
+
+            "a" {
+                color = Color.koders.krouille
+                borderBottom(0.05.rem, BorderStyle.solid, Color.koders.krouille)
             }
         }
 
-        +"GET THE SPONSOR DECK"
+        +"For partnership opportunities, contact us at "
+        styledA(href = "mailto:contact@kotlin-koders.eu") {
+            +"contact@kotlin-koders.eu"
+        }
+        +"."
     }
 }

@@ -1,6 +1,9 @@
 package eu.koders.utils
 
 import kotlinx.browser.window
+import kotlinx.css.CSSBuilder
+import kotlinx.css.Rule
+import kotlinx.css.RuleSet
 import org.w3c.dom.events.Event
 import react.*
 
@@ -12,14 +15,18 @@ fun useIsMobile(): Boolean {
         else window.matchMedia(mobileQuery).matches
     }
 
-    useEffectWithCleanup(emptyList()) {
+    useEffect {
         val onResize: (Event?) -> Unit = {
             isMobile = window.matchMedia(mobileQuery).matches
         }
+
         window.addEventListener("resize", onResize)
+        cleanup { window.removeEventListener("resize", onResize) }
+
         onResize(null)
-        ({ window.removeEventListener("resize", onResize) })
     }
 
     return isMobile
 }
+
+typealias PRuleSet = (CSSBuilder) -> Unit

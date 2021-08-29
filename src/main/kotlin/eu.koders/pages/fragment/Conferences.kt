@@ -1,7 +1,10 @@
 package eu.koders.pages.fragment
 
+import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.components.Section
+import eu.koders.data.Data
+import eu.koders.data.Speaker
 import eu.koders.utils.*
 import kotlinx.css.*
 import kotlinx.html.ButtonType
@@ -13,6 +16,18 @@ import react.functionalComponent
 import styled.*
 
 val Conferences = functionalComponent<RProps> {
+    styledP {
+        css {
+            +koders.body
+            color = Color.koders.orange
+            specific {
+                textAlign = TextAlign.center
+            }
+            marginTop = (-2).rem
+        }
+
+        +"December 2nd, Pan Piper"
+    }
     flexRow(justifyContent = JustifyContent.center, alignItems = Align.center) {
         css {
             maxWidth = 75.pct
@@ -35,25 +50,68 @@ val Conferences = functionalComponent<RProps> {
             }
 
             child(Shootout) {
-                attrs.number = "250"
-                attrs.desc = "Attendees"
+                attrs.number = "2"
+                attrs.desc = "Tracks"
             }
         }
 
         flexRow {
             child(Shootout) {
-                attrs.number = "2"
-                attrs.desc = "Tracks"
+                attrs.number = "20+"
+                attrs.desc = "Speakers"
             }
 
             child(Shootout) {
-                attrs.number = "20+"
-                attrs.desc = "Speakers"
+                attrs.number = "250"
+                attrs.desc = "Attendees"
             }
         }
     }
 
-    styledDiv { css { flexGrow = 1.0 } }
+    styledDiv {
+        css {
+            display = Display.flex
+            flexDirection = FlexDirection.row
+            flexWrap = FlexWrap.wrap
+            maxWidth = 68.rem
+            justifyContent = JustifyContent.center
+            margin(LinearDimension.auto)
+        }
+
+        Speaker.all
+            .sortedBy { it.data.name }
+            .plus(Data("next", Speaker("...stay tuned!", "")))
+            .forEach { speaker ->
+                styledDiv {
+                    css {
+                        display = Display.flex
+                        flexDirection = FlexDirection.row
+                        alignItems = Align.center
+                        width = 20.rem
+                        margin(1.rem)
+                    }
+                    styledImg(src = "/imgs/speakers/${speaker.id}.jpeg") {
+                        css {
+                            width = 6.rem
+                            marginRight = 0.5.rem
+                            borderRadius = 0.25.rem
+                        }
+                    }
+                    styledP {
+                        css {
+                            fontFamily = koders.piconExtended
+                            fontWeight = FontWeight.w900
+                            fontSize = 1.4.rem
+                            color = Color.koders.krouille
+                        }
+                        speaker.data.name.uppercase().split(" ").forEach {
+                            +it
+                            br {}
+                        }
+                    }
+                }
+        }
+    }
 
     styledP {
         css {
@@ -65,27 +123,47 @@ val Conferences = functionalComponent<RProps> {
             margin(LinearDimension.auto, 4.rem)
         }
 
-        +"Conferences are nothing without their amazing speakers."
-        br {}
-        +"We are very excited to see what you have to share with the community :)."
+        +"Join us to hear about the future of Kotlin, with key industry speakers!"
     }
 
-    styledDiv { css { flexGrow = 1.0 } }
-
-    styledA(
-        href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
-        target = "_blank"
-    ) {
+    styledP {
         css {
-            border = "none"
-            +koders.button
-            margin(3.rem, LinearDimension.auto)
+            margin(LinearDimension.auto)
             landscapeMobile {
                 margin(0.5.rem, LinearDimension.auto)
             }
-        }
 
-        +"SUBMIT YOUR TALK"
+        }
+        styledA(
+            href = "https://www.billetweb.fr/kotlin-koders-2021",
+            target = "_blank"
+        ) {
+            css {
+                border = "none"
+                +koders.button
+            }
+
+            +"BUY EARLY BIRD!"
+        }
+        styledSpan {
+            css {
+                padding(horizontal = 1.rem)
+                color = Color.koders.orange
+                fontWeight = FontWeight.medium
+            }
+            +"OR"
+        }
+        styledA(
+            href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
+            target = "_blank"
+        ) {
+            css {
+                border = "none"
+                +koders.button
+            }
+
+            +"SUBMIT YOUR TALK!"
+        }
     }
 }
 
@@ -94,10 +172,9 @@ external interface ShootoutProps : RProps {
     var desc: String
 }
 
-private val Shootout = functionalComponent<ShootoutProps> { props ->
+val Shootout = functionalComponent<ShootoutProps> { props ->
     flexColumn(justifyContent = JustifyContent.center, alignItems = Align.center) {
         css {
-            flexGrow = 1.0
             width = 15.rem
             portraitMobile {
                 width = 12.rem

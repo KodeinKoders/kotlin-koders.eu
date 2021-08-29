@@ -114,7 +114,7 @@ object KodersStyles : StyleSheet("KodeinStyles", isStatic = true) {
     val button by css {
         +link
         width = LinearDimension.fitContent
-        display = Display.flex
+        display = Display.inlineFlex
         flexDirection = FlexDirection.row
         alignItems = Align.center
         padding(0.3.rem, 1.rem, 0.1.rem, 1.rem)

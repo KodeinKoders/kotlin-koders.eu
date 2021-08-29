@@ -26,6 +26,9 @@ val Header = functionalComponent<RProps> {
             width = 100.pct
             height = 100.vh
             backgroundColor = Color.koders.kyzantium
+            clipPath = "polygon(0 0, 100% 0, 100% calc(100% - 5rem), 0 100%)"
+            position = Position.relative
+            zIndex = 10
         }
 
         styledDiv {
@@ -65,7 +68,7 @@ val Header = functionalComponent<RProps> {
                     }
                 }
 
-                +"2nd December - Paris, France"
+                +"December 1st & 2nd - Paris, France"
             }
 
             // Desktop header
@@ -175,7 +178,7 @@ val Header = functionalComponent<RProps> {
         }
 
         styledA(
-            href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
+            href = "https://www.billetweb.fr/kotlin-koders-2021",
             target = "_blank"
         ) {
             css {
@@ -187,7 +190,7 @@ val Header = functionalComponent<RProps> {
                 }
             }
 
-            +"SUBMIT YOUR TALK"
+            +"BUY EARLY BIRD!"
         }
 
         styledDiv {
@@ -205,15 +208,17 @@ val Header = functionalComponent<RProps> {
             position = Position.absolute
             width = 6.rem
             left = 50.pct - 3.rem
-            bottom = 2.rem
+            bottom = 4.rem
             +koders.body
+            zIndex = 20
+
             portraitMobile {
                 specific { fontSize = 0.8.rem }
-                bottom = 1.rem
+                bottom = 3.rem
             }
             landscapeMobile {
                 specific { fontSize = 0.8.rem }
-                bottom = 1.rem
+                bottom = 3.rem
             }
             maxHeight(320) {
                 marginLeft = 3.rem
@@ -241,8 +246,8 @@ private val ScrollIndicator = functionalComponent<ScrollIndicatorProps>("ScrollI
     val img = useRef<HTMLImageElement>()
     val isMobile = useIsMobile()
 
-    useEffectWithCleanup(listOf(isVisible, isMobile)) {
-        if (!isVisible) { return@useEffectWithCleanup ({}) }
+    useEffect(isVisible, isMobile) {
+        if (!isVisible) return@useEffect
 
         fun execute() {
             img.current?.style?.opacity = "1.0"
@@ -258,29 +263,28 @@ private val ScrollIndicator = functionalComponent<ScrollIndicatorProps>("ScrollI
         }
 
         val handle = window.setInterval(::execute, 3500)
-        execute()
+        cleanup { window.clearInterval(handle) }
 
-        ({ window.clearInterval(handle) })
+        execute()
     }
 
-    useEffectWithCleanup(listOf(isTop)) {
+    useEffect(isTop) {
         if (isTop) {
             val handle = window.setTimeout({
                 isVisible = true
             }, 2000)
-            return@useEffectWithCleanup ({ window.clearTimeout(handle) })
+            cleanup { window.clearTimeout(handle) }
         } else {
             isVisible = false
-            return@useEffectWithCleanup ({})
         }
     }
 
-    useEffectWithCleanup(emptyList()) {
+    useEffect {
         val scroll = EventListener {
             isTop = window.scrollY < 1.0
         }
         window.addEventListener("scroll", scroll, jsObject { passive = true })
-        ({ window.removeEventListener("scroll", scroll) })
+        cleanup { window.removeEventListener("scroll", scroll) }
     }
 
     flexColumn(JustifyContent.center, Align.center) {

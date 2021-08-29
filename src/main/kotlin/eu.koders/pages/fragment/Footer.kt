@@ -23,6 +23,8 @@ val Footer = functionalComponent<RProps> {
             maxWidth(980) {
                 flexDirection = FlexDirection.column
             }
+            paddingTop = 5.rem
+            marginTop = (-5).rem
         }
 
         flexRow(justifyContent =JustifyContent.start, alignItems = Align.center) {
@@ -158,7 +160,7 @@ val Footer = functionalComponent<RProps> {
 
                 +"For partnership opportunities, reach out at "
                 styledA(href = "mailto:contact@kodein.net") {
-                    +"contact@kodein.net"
+                    +"contact@kotlin-koders.eu"
                 }
                 +"."
             }

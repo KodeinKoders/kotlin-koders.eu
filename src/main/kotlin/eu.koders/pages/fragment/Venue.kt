@@ -117,16 +117,18 @@ private val Map = functionalComponent<RProps> {
     val mapViewport = useRef<HTMLDivElement>(null)
     var mapWidth by useState(0)
 
-    useEffectWithCleanup {
+    useEffect {
         val onResize: (Event?) -> Unit = {
             mapWidth = when (val viewport = mapViewport.current) {
                 null -> 0
                 else -> (viewport.clientWidth * 0.9).roundToInt()
             }
         }
+
         window.addEventListener("resize", onResize)
+        cleanup { window.removeEventListener("resize", onResize) }
+
         onResize(null)
-        ({ window.removeEventListener("resize", onResize) })
     }
 
     flexColumn(justifyContent = JustifyContent.center, alignItems = Align.center) {
