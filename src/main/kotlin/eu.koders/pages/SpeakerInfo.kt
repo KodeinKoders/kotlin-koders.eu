@@ -5,6 +5,7 @@ import eu.koders.charter.koders
 import eu.koders.data.Speaker
 import eu.koders.data.sessions
 import eu.koders.utils.flexRow
+import eu.koders.utils.portraitMobile
 import kotlinx.css.*
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
@@ -26,6 +27,12 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
         return@functionalComponent
     }
     flexRow(alignItems = Align.center) {
+        css {
+            portraitMobile {
+                flexDirection = FlexDirection.column
+                gap = 1.rem
+            }
+        }
         styledImg(src = "/imgs/speakers/${props.id}.jpeg") {
             css {
                 width = 12.rem
@@ -40,6 +47,10 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
                 fontFamily = koders.piconExtended
                 fontWeight = FontWeight.w900
                 fontSize = 2.8.rem
+                portraitMobile {
+                    fontSize = 1.6.rem
+                    textAlign = TextAlign.center
+                }
                 color = Color.koders.krouille
             }
             speaker.data.name.uppercase().split(" ").forEach {
@@ -64,6 +75,9 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
                 css {
                     fontWeight = FontWeight.w900
                     fontSize = 1.8.rem
+                    portraitMobile {
+                        fontSize = 1.2.rem
+                    }
                     color = Color.koders.krouille
                     transition(::color, 0.3.s)
                     hover {

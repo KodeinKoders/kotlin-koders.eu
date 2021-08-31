@@ -26,6 +26,7 @@ val Conferences = functionalComponent<RProps> {
                 textAlign = TextAlign.center
             }
             marginTop = (-2).rem
+            padding(horizontal = 1.rem)
         }
 
         +"December 2nd, Pan Piper"
@@ -81,39 +82,10 @@ val Conferences = functionalComponent<RProps> {
             .sortedBy { it.data.name }
             .plus(Data("next", Speaker("...stay tuned!", "")))
             .forEach { speaker ->
-                styledA(href = "#/speaker/${speaker.id}") {
-                    css {
-                        display = Display.flex
-                        flexDirection = FlexDirection.row
-                        alignItems = Align.center
-                        width = 20.rem
-                        margin(1.rem)
-                        color = Color.koders.krouille
-                        transition(::color, 0.3.s)
-                        hover {
-                            color = KodersColors.kamethiste
-                        }
-                    }
-                    styledImg(src = "/imgs/speakers/${speaker.id}.jpeg") {
-                        css {
-                            width = 6.rem
-                            marginRight = 0.5.rem
-                            borderRadius = 0.25.rem
-                        }
-                    }
-                    styledP {
-                        css {
-                            fontFamily = koders.piconExtended
-                            fontWeight = FontWeight.w900
-                            fontSize = 1.4.rem
-                        }
-                        speaker.data.name.uppercase().split(" ").forEach {
-                            +it
-                            br {}
-                        }
-                    }
+                child(SpeakerLink) {
+                    attrs.speaker = speaker
                 }
-        }
+            }
     }
 
     styledP {
@@ -136,6 +108,12 @@ val Conferences = functionalComponent<RProps> {
                 margin(0.5.rem, LinearDimension.auto)
             }
 
+            portraitMobile {
+                display = Display.flex
+                flexDirection = FlexDirection.column
+                alignItems = Align.center
+                gap = 1.rem
+            }
         }
         styledA(
             href = "https://www.billetweb.fr/kotlin-koders-2021",
@@ -170,7 +148,7 @@ val Conferences = functionalComponent<RProps> {
     }
 }
 
-external interface ShootoutProps : RProps {
+external interface ShootoutProps : StyledProps {
     var number: String
     var desc: String
 }
@@ -180,7 +158,7 @@ val Shootout = functionalComponent<ShootoutProps> { props ->
         css {
             width = 15.rem
             portraitMobile {
-                width = 12.rem
+                width = 10.rem
             }
         }
 
@@ -198,6 +176,51 @@ val Shootout = functionalComponent<ShootoutProps> { props ->
                 color = Color.koders.kuivre
             }
             +props.desc
+        }
+    }
+}
+
+external interface SpeakerLinkProps : StyledProps {
+    var speaker: Data<Speaker>
+}
+
+val SpeakerLink = functionalComponent<SpeakerLinkProps> { props ->
+    styledA(href = "#/speaker/${props.speaker.id}") {
+        css {
+            display = Display.flex
+            flexDirection = FlexDirection.row
+            alignItems = Align.center
+            width = 20.rem
+            portraitMobile {
+                width = 18.rem
+            }
+            margin(1.rem)
+            color = Color.koders.krouille
+            transition(::color, 0.3.s)
+            hover {
+                color = KodersColors.kamethiste
+            }
+        }
+        styledImg(src = "/imgs/speakers/${props.speaker.id}.jpeg") {
+            css {
+                width = 6.rem
+                marginRight = 0.5.rem
+                borderRadius = 0.25.rem
+            }
+        }
+        styledP {
+            css {
+                fontFamily = koders.piconExtended
+                fontWeight = FontWeight.w900
+                fontSize = 1.4.rem
+                portraitMobile {
+                    fontSize = 1.2.rem
+                }
+            }
+            props.speaker.data.name.uppercase().split(" ").forEach {
+                +it
+                br {}
+            }
         }
     }
 }

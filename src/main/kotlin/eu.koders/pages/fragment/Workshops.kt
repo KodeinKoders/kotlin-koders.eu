@@ -24,6 +24,7 @@ val Workshops = functionalComponent<RProps> {
                 textAlign = TextAlign.center
             }
             marginTop = (-2).rem
+            padding(horizontal = 1.rem)
         }
 
         +"December 1st, venue in Paris (to be announced)"
@@ -95,6 +96,9 @@ val Workshops = functionalComponent<RProps> {
                         css {
                             fontWeight = FontWeight.w900
                             fontSize = 1.8.rem
+                            portraitMobile {
+                                fontSize = 1.2.rem
+                            }
                         }
                         +workshop.data.title.uppercase()
                     }

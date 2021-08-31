@@ -9,7 +9,7 @@ import kotlinx.css.LinearDimension
 import kotlinx.css.height
 import kotlinx.css.ruleSet
 import react.child
-import react.dom.h1
+import react.dom.h2
 import react.functionalComponent
 import react.router.dom.useHistory
 
@@ -58,15 +58,25 @@ val Page = functionalComponent<RouteProps> { props ->
     if (section != null && id != null) {
         child(Popup) {
             attrs {
-                onClick = {
+                onClose = {
                     history.push("/")
                 }
+                key = "${props.section}/${props.id}"
             }
             when (section) {
                 "speaker" -> {
                     child(SpeakerInfo) {
                         attrs.id = id
                     }
+                }
+                "talk", "workshop" -> {
+                    child(SessionInfo) {
+                        attrs.type = section
+                        attrs.id = id
+                    }
+                }
+                "else" -> {
+                    h2 { +"Unknown $section!" }
                 }
             }
         }

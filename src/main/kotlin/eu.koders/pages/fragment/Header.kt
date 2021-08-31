@@ -63,8 +63,8 @@ val Header = functionalComponent<RProps> {
                     margin(2.rem, LinearDimension.auto)
                     borderBottom(0.05.rem, BorderStyle.solid, Color.koders.orange)
 
-                    rangeHeight(768, 980) {
-                        marginTop = 4.rem
+                    maxHeight(800) {
+                        margin(LinearDimension.auto)
                     }
                 }
 
@@ -151,8 +151,13 @@ val Header = functionalComponent<RProps> {
                 portraitMobile {
                     margin(0.rem, LinearDimension.auto, 2.rem)
 
-                    maxHeight(640) {
+                    rangeHeight(680, 740) {
                         margin(0.rem, LinearDimension.auto)
+                        height = 3.rem
+                    }
+
+                    maxHeight(680) {
+                        display = Display.none
                     }
                 }
                 landscapeMobile {
@@ -171,6 +176,12 @@ val Header = functionalComponent<RProps> {
                 margin(2.rem, LinearDimension.auto)
                 landscapeMobile {
                     margin(0.5.rem, LinearDimension.auto)
+                }
+                portraitMobile {
+                    maxHeight(640) {
+                        display = Display.none
+                        margin(0.5.rem, LinearDimension.auto)
+                    }
                 }
             }
 

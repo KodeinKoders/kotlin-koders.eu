@@ -145,7 +145,7 @@ sealed class Session {
                 )
             )
             val Multiplatform by Workshop(
-                title = "Kotlin/Multiplatform for native mobile applications",
+                title = "Kotlin Multiplatform for native mobile applications",
                 speakers = listOf(Speaker.SalomonBrys),
                 abstract = {
                     p { +"In recent years, Kotlin/Multiplatform has become one of the most hot topic in both Kotlin & the mobile application industry. Its novel promise makes a lot of sense to seasoned application creators: only share business code, and leave UI & platform integration code to the platform itself & its experts." }
