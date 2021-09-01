@@ -15,7 +15,7 @@ data class Speaker(
                     He is a Kotlin GDE, author of over 20 courses, prolific conference speaker and co-organiser of the Belfast BASH Meetup and KUG.
                     Outside of work he is a martial arts instructor and weightlifter.
                 """.trimIndent(),
-            company = "Instil",
+            company = "Instil"
         )
         val JohnOReilly by Speaker(
             name = "John O'Reilly",
@@ -23,7 +23,7 @@ data class Speaker(
                     John is Kotlin GDE that has been developing Android apps since 2010.
                     He worked on server side Java applications in the 2000s and desktop clients in the 1990s....and is waiting in anticipation to see what the 20s bring!
                 """.trimIndent(),
-            company = "Neat",
+            company = "Neat"
         )
         val KarinAleksandraMonoid by Speaker(
             name = "Karin-Aleksandra Monoid",
@@ -32,14 +32,14 @@ data class Speaker(
                     Currently she is specializing in Kotlin and advocating for functional programming (the good parts!).
                     She probably tried your favorite backend language on frontend (Scala.js and Kotlin/JS).
                 """.trimIndent(),
-            company = "",
+            company = ""
         )
         val LeonidStartsev by Speaker(
             name = "Leonid Startsev",
             bio = """
                     Developer in Kotlin Libraries team at JetBrains, maintainer of kotlinx.serialization.
                 """.trimIndent(),
-            company = "JetBrains",
+            company = "JetBrains"
         )
         val LiliiaAbdulina by Speaker(
             name = "Liliia Abdulina",
@@ -48,7 +48,7 @@ data class Speaker(
                     I have been Kotlin Multiplatform QA from almost its beginning, have worked with the very first model (which was before Kotlin 1.3) and even met a bit headers/impl instead of well known expect/actual keywords.
                     For a long time I was a single QA there, now there are 2.5 of us, including me who leads the whole Kotlin QA team nowadays. 
                 """.trimIndent(),
-            company = "JetBrains",
+            company = "JetBrains"
         )
         val SalomonBrys by Speaker(
             name = "Salomon Brys",
@@ -58,7 +58,7 @@ data class Speaker(
                     He is a Kotlin GDE, Kotlin certified trainer, KUG Paris co-organiser, and conference speaker.
                     He also loves dancing Rock'n'Roll, playing boardgames, and flying small planes.
                 """.trimIndent(),
-            company = "KODEIN Koders",
+            company = "KODEIN Koders"
         )
     }
 }

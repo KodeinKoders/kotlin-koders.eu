@@ -1,5 +1,6 @@
 package eu.koders.pages.fragment
 
+import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.utils.flexRow
 import eu.koders.utils.maxSize
@@ -151,18 +152,19 @@ val Footer = functionalComponent<RProps> {
                 css {
                     +koders.body
                     color = Color.koders.orange
+                }
 
-                    "a" {
-                        color = Color.koders.kaumon
-                        borderBottom(0.05.rem, BorderStyle.solid, Color.koders.kaumon)
+                styledA(href = "https://twitter.com/kotlinkoders", target = "_blank") {
+                    css {
+                        color = KodersColors.kaumon
+                        fontWeight = FontWeight.w700
+                        transition(::color, 0.3.s)
+                        hover {
+                            color = KodersColors.klycine
+                        }
                     }
+                    +"@KotlinKoders"
                 }
-
-                +"For partnership opportunities, reach out at "
-                styledA(href = "mailto:contact@kodein.net") {
-                    +"contact@kotlin-koders.eu"
-                }
-                +"."
             }
         }
     }

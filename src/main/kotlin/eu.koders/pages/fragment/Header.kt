@@ -201,7 +201,7 @@ val Header = functionalComponent<RProps> {
                 }
             }
 
-            +"BUY EARLY BIRD!"
+            +"BUY BLIND BIRD!"
         }
 
         styledDiv {

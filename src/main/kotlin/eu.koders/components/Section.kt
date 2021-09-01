@@ -32,7 +32,7 @@ val Section = functionalComponent<SectionProps> { props ->
         flexColumn {
             css {
                 width = 100.pct
-                backgroundColor = Color.koders.kaumon.withAlpha(1 - (0.2 * props.index))
+                backgroundColor = Color.koders.kaumon.withAlpha(1 - (0.1666 * props.index))
                 padding(vertical = 6.rem)
                 gap = 2.5.rem
                 props.css?.invoke(this)

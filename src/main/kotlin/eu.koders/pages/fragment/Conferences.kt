@@ -124,7 +124,7 @@ val Conferences = functionalComponent<RProps> {
                 +koders.button
             }
 
-            +"BUY EARLY BIRD!"
+            +"BUY BLIND BIRD!"
         }
         styledSpan {
             css {

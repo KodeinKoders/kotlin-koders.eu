@@ -51,6 +51,13 @@ val Page = functionalComponent<RouteProps> { props ->
         child(Venue)
     }
 
+    child(Section) {
+        attrs.title = "Prices"
+        attrs.index = 5
+
+        child(Prices)
+    }
+
     child(Footer)
 
     val section = props.section
@@ -65,8 +72,12 @@ val Page = functionalComponent<RouteProps> { props ->
             }
             when (section) {
                 "speaker" -> {
-                    child(SpeakerInfo) {
-                        attrs.id = id
+                    if (id == "next") {
+                        child(NextInfo)
+                    } else {
+                        child(SpeakerInfo) {
+                            attrs.id = id
+                        }
                     }
                 }
                 "talk", "workshop" -> {
