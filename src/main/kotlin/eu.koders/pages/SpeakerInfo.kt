@@ -5,6 +5,7 @@ import eu.koders.charter.koders
 import eu.koders.data.Speaker
 import eu.koders.data.sessions
 import eu.koders.utils.flexRow
+import eu.koders.utils.light
 import eu.koders.utils.portraitMobile
 import kotlinx.css.*
 import kotlinx.css.properties.s
@@ -56,6 +57,16 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
             speaker.data.name.uppercase().split(" ").forEach {
                 +it
                 br {}
+            }
+            styledP {
+                css {
+                    fontWeight = FontWeight.light
+                    fontSize = 2.rem
+                    portraitMobile {
+                        fontSize = 1.3.rem
+                    }
+                }
+                +speaker.data.company
             }
         }
 

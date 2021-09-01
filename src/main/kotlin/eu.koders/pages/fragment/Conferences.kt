@@ -80,7 +80,7 @@ val Conferences = functionalComponent<RProps> {
 
         Speaker.all
             .sortedBy { it.data.name }
-            .plus(Data("next", Speaker("...stay tuned!", "")))
+            .plus(Data("next", Speaker("...stay tuned!", "",  "")))
             .forEach { speaker ->
                 child(SpeakerLink) {
                     attrs.speaker = speaker
@@ -221,6 +221,15 @@ val SpeakerLink = functionalComponent<SpeakerLinkProps> { props ->
                 +it
                 br {}
             }
+
+            styledP {
+                css {
+                    fontWeight = FontWeight.ultraLight
+                    fontSize = 1.rem
+                }
+                +props.speaker.data.company
+            }
         }
+
     }
 }
