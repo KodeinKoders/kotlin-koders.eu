@@ -14,7 +14,7 @@ data class Data<T : Any>(val id: String, val data: T) {
 
 abstract class DataHolder<T : Any>(private val parent: DataHolder<in T>? = null) {
 
-    private val map: MutableMap<String, Data<T>> = HashMap()
+    private val map: MutableMap<String, Data<T>> = LinkedHashMap()
 
     operator fun T.provideDelegate(thisRef: DataHolder<T>, property: KProperty<*>): ReadOnlyProperty<DataHolder<T>, Data<T>> {
         val data = Data(property.name, this)
@@ -23,14 +23,6 @@ abstract class DataHolder<T : Any>(private val parent: DataHolder<in T>? = null)
         if (parent != null) (parent.map as MutableMap<String, Data<in T>>)[property.name] = data
         return ReadOnlyProperty { _, _ -> data }
     }
-
-//    operator fun T.getValue(thisRef: DataHolder<T>, property: KProperty<*>): Data<T> {
-//        val data = Data(property.name, this)
-//        map[property.name] = data
-//        @Suppress("UNCHECKED_CAST")
-//        if (parent != null) (parent.map as MutableMap<String, Data<in T>>)[property.name] = data
-//        return data
-//    }
 
     operator fun get(id: String): Data<T>? = map[id]
 

@@ -74,26 +74,4 @@ val Prices = functionalComponent<RProps> {
         +"BUY BLIND BIRD!"
     }
 
-
-//    flexColumn(JustifyContent.center, Align.center) {
-//        css {
-//            gap = 1.rem
-//            padding(horizontal = 2.rem)
-//            color = KodersColors.krouille
-//            +koders.chapo
-//        }
-//
-//        styledP {
-//            b { +"Conference day" }
-//            +" (Thursday, December 2nd): "
-//            b { +"80€ (Blind Bird: 50€)" }
-//        }
-//
-//        styledP {
-//            b { +"Workshop day" }
-//            +" (Wednesday, December 1st): "
-//            b { +"450€" }
-//        }
-//    }
-
 }

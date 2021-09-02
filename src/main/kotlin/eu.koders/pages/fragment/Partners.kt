@@ -14,7 +14,7 @@ import react.dom.br
 import react.functionalComponent
 import styled.*
 
-val Partners = functionalComponent<RProps>() {
+val Partners = functionalComponent<RProps> {
     styledP {
         css {
             +koders.chapo
@@ -34,13 +34,15 @@ val Partners = functionalComponent<RProps>() {
     }
 
     Sponsor.Type.values().forEach { type ->
-        Sponsor.all.filter { it.data.type == type }.forEach { sponsor ->
-            flexRow(justifyContent = JustifyContent.center) {
-                css {
-                    flexWrap = FlexWrap.wrap
-                    maxWidth = 68.rem
-                    margin(LinearDimension.auto)
-                }
+        flexRow(justifyContent = JustifyContent.center) {
+            css {
+                flexWrap = FlexWrap.wrap
+                maxWidth = 68.rem
+                gap = 2.rem
+                flexWrap = FlexWrap.wrap
+                margin(LinearDimension.auto)
+            }
+            Sponsor.all.filter { it.data.type == type }.forEach { sponsor ->
                 styledA(href = sponsor.data.url, target = "_blank") {
                     css {
                         display = Display.flex
@@ -50,7 +52,7 @@ val Partners = functionalComponent<RProps>() {
                         height = 4.2.rem
                         margin(1.rem)
                     }
-                    styledImg(src = "/imgs/sponsors/${sponsor.id}.png") {
+                    styledImg(src = "/imgs/sponsors/${sponsor.id}.png", alt = sponsor.data.name) {
                         css {
                             maxWidth = 100.pct
                             maxHeight = 100.pct
