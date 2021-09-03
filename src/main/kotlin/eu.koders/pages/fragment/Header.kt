@@ -1,5 +1,6 @@
 package eu.koders.pages.fragment
 
+import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.utils.*
 import kotlinext.js.jsObject
@@ -20,123 +21,95 @@ val Header = functionalComponent<RProps> {
 
     val div = useRef<HTMLDivElement>()
 
-    flexColumn {
+    flexColumn(JustifyContent.center, Align.center) {
         ref = div
         css {
             width = 100.pct
-            height = 100.vh
+            height = 82.vh
+            paddingBottom = 18.vh
             backgroundColor = Color.koders.kyzantium
             clipPath = "polygon(0 0, 100% 0, 100% calc(100% - 5rem), 0 100%)"
             position = Position.relative
             zIndex = 10
         }
 
-        styledDiv {
+        flexRow {
             css {
-                flexGrow = 1.0
-                maxWidth(1280) {
-                    display = Display.none
+                +koders.display1
+                width = LinearDimension.fitContent
+                color = Color.koders.orange
+                maxWidth(400) {
+                    flexDirection = FlexDirection.column
+                }
+                margin(2.rem, LinearDimension.auto)
+                maxHeight(620) {
+                    margin(0.5.rem, LinearDimension.auto)
+                }
+                borderBottom(0.05.rem, BorderStyle.solid, Color.koders.orange)
+            }
+
+            styledSpan {
+                +"December 1st & 2nd"
+            }
+            styledSpan {
+                css {
+                    padding(horizontal = 0.5.em)
+                    maxWidth(400) {
+                        display = Display.none
+                    }
+                }
+                +" - "
+            }
+            styledSpan {
+                +"Paris, France"
+            }
+        }
+
+        // Mobile header
+        flexColumn(JustifyContent.center, Align.center) {
+            css {
+                color = Color.koders.kaumon
+                fontWeight = FontWeight.light
+                fontFamily = koders.piconExtended
+                textAlign = TextAlign.left
+                lineHeight = 90.pct.lh
+                fontSize = 6.rem
+                width = 7.2.em // EM by design
+                maxSize(width = 775, height = 855) {
+                    fontSize = 4.rem
+                }
+                maxSize(width = 570, height = 775) {
+                    fontSize = 2.5.rem
+                }
+                margin(vertical = 3.rem)
+                maxHeight(620) {
+                    margin(vertical = 1.rem)
                 }
             }
-        }
 
-        styledImg(src = "imgs/kotlin-koders-logo.svg") {
-            css {
-                width = 10.rem
-                margin(1.5.rem, LinearDimension.auto)
+            styledSpan {
+                css {
+                    display = Display.block
+                    alignSelf = Align.flexStart
+                }
+                +"Kotlin"
             }
-        }
 
-        styledDiv {
-            css {
-                margin(0.rem, LinearDimension.auto)
+            styledSpan {
+                css {
+                    display = Display.block
+                    color = Color.koders.korail
+                    fontWeight = FontWeight.w700
+                }
+                +"KODERS"
             }
 
             styledP {
                 css {
-                    +koders.display1
-                    width = LinearDimension.fitContent
-                    color = Color.koders.orange
-                    specific {
-                        textAlign = TextAlign.center
-                    }
-                    margin(2.rem, LinearDimension.auto)
-                    borderBottom(0.05.rem, BorderStyle.solid, Color.koders.orange)
-
-                    maxHeight(800) {
-                        margin(LinearDimension.auto)
-                    }
+                    display = Display.block
+                    alignSelf = Align.flexEnd
                 }
-
-                +"December 1st & 2nd - Paris, France"
-            }
-
-            // Desktop header
-            styledDiv {
-                css {
-                    +koders.display3
-                    color = Color.koders.kaumon
-                    specific {
-                        fontWeight = FontWeight.light
-                        textAlign = TextAlign.center
-                    }
-                    margin(1.rem, 1.rem)
-                    portraitMobile {
-                        display = Display.none
-                    }
-                }
-
-                +"Kotlin"
-
-                styledSpan {
-                    css {
-                        color = Color.koders.korail
-                        specific {
-                            fontWeight = FontWeight.w700
-                            textAlign = TextAlign.center
-                        }
-                    }
-                    +"KODERS"
-                }
-
                 +"2021"
-            }
-
-            // Mobile header
-            styledDiv {
-                css {
-                    +koders.display3
-                    color = Color.koders.kaumon
-                    specific {
-                        fontWeight = FontWeight.light
-                        textAlign = TextAlign.left
-                        lineHeight = 90.pct.lh
-                    }
-                    margin(3.rem, 4.rem)
-                    display = Display.none
-                    portraitMobile(979) {
-                        display = Display.block
-                    }
-                }
-
-                +"Kotlin"
-
-                br { }
-                styledSpan {
-                    css {
-                        color = Color.koders.korail
-                        specific {
-                            fontWeight = FontWeight.w700
-                            textAlign = TextAlign.center
-                        }
-                    }
-                    +"KODERS"
-                }
-                br { }
-                styledP {
-                    css { textAlign = TextAlign.right }
-                    +"2021"
-                }
             }
         }
 
@@ -148,19 +121,10 @@ val Header = functionalComponent<RProps> {
                 opacity = .7
                 backgroundColor = Color.koders.kaumon
                 margin(1.rem, LinearDimension.auto)
-                portraitMobile {
-                    margin(0.rem, LinearDimension.auto, 2.rem)
-
-                    rangeHeight(680, 740) {
-                        margin(0.rem, LinearDimension.auto)
-                        height = 3.rem
-                    }
-
-                    maxHeight(680) {
-                        display = Display.none
-                    }
+                maxHeight(740) {
+                    height = 3.rem
                 }
-                landscapeMobile {
+                maxHeight(680) {
                     display = Display.none
                 }
             }
@@ -174,14 +138,8 @@ val Header = functionalComponent<RProps> {
                     textAlign = TextAlign.center
                 }
                 margin(2.rem, LinearDimension.auto)
-                landscapeMobile {
+                maxHeight(620) {
                     margin(0.5.rem, LinearDimension.auto)
-                }
-                portraitMobile {
-                    maxHeight(640) {
-                        display = Display.none
-                        margin(0.5.rem, LinearDimension.auto)
-                    }
                 }
             }
 
@@ -196,21 +154,9 @@ val Header = functionalComponent<RProps> {
                 border = "none"
                 +koders.button
                 margin(1.rem, LinearDimension.auto)
-                landscapeMobile {
-                    margin(0.5.rem, LinearDimension.auto)
-                }
             }
 
             +"BUY BLIND BIRD!"
-        }
-
-        styledDiv {
-            css {
-                flexGrow = 2.0
-                maxWidth(1280) {
-                    display = Display.none
-                }
-            }
         }
     }
 
@@ -220,20 +166,12 @@ val Header = functionalComponent<RProps> {
             width = 6.rem
             left = 50.pct - 3.rem
             bottom = 4.rem
+            maxHeight(480) {
+                left = 50.pct - 12.rem
+                bottom = 2.rem
+            }
             +koders.body
             zIndex = 20
-
-            portraitMobile {
-                specific { fontSize = 0.8.rem }
-                bottom = 3.rem
-            }
-            landscapeMobile {
-                specific { fontSize = 0.8.rem }
-                bottom = 3.rem
-            }
-            maxHeight(320) {
-                marginLeft = 3.rem
-            }
         }
 
         child(ScrollIndicator) {
