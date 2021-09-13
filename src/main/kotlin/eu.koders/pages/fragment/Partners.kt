@@ -48,6 +48,7 @@ val Partners = functionalComponent<RProps> {
                         display = Display.flex
                         flexDirection = FlexDirection.row
                         alignItems = Align.center
+                        justifyContent = JustifyContent.center
                         width = 15.rem
                         height = 4.2.rem
                         margin(1.rem)
