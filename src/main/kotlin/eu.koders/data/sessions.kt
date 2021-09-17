@@ -1,10 +1,15 @@
 package eu.koders.data
 
+import eu.koders.charter.koders
+import kotlinx.css.Color
+import kotlinx.css.color
+import kotlinx.css.properties.TextDecoration
+import kotlinx.css.properties.TextDecorationLine
+import kotlinx.css.textDecoration
 import react.RRender
-import react.dom.br
-import react.dom.li
-import react.dom.p
-import react.dom.ul
+import react.dom.*
+import styled.css
+import styled.styledA
 
 
 sealed class Session {
@@ -70,6 +75,16 @@ sealed class Session {
                     }
                     p {
                         +"In this talk Garth Gilmour will lift the lid on some of the tricks the Kotlin compiler (with plug-ins) uses to keep your coding life simple, plus show when and how you can influence its output."
+                    }
+                    p {
+                        styledA(href = "https://instil.co/news/kotlin-koders-2021/"){
+                            css {
+                                textDecoration = TextDecoration(setOf(TextDecorationLine.underline))
+                                color = Color.koders.krouille
+                            }
+
+                            +"See announcement article."
+                        }
                     }
                 }
             )
