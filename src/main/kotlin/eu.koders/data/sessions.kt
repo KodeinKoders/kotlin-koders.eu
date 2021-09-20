@@ -49,21 +49,21 @@ sealed class Session {
                     }
                 }
             )
-            val EvolveLib by Talk(
-                title = "How to evolve your Kotlin library painlessly",
-                speakers = listOf(Speaker.LeonidStartsev),
-                abstract = {
-                    p {
-                        +"If you are a maintainer of the library or considering to be one, then this talk is for you."
-                        br {}
-                        +"We'll talk about compatibility between different library versions and various instruments that help developer to track it."
-                        +"We'll also take a look at evolving your library's API, what are the best ways to add new declarations and to remove old ones."
-                    }
-                    p {
-                        +"Most of the themes are illustrated with examples from well-known Kotlin libraries, such as kotlinx.coroutines and kotlinx.serialization."
-                    }
-                }
-            )
+//            val EvolveLib by Talk(
+//                title = "How to evolve your Kotlin library painlessly",
+//                speakers = listOf(Speaker.LeonidStartsev),
+//                abstract = {
+//                    p {
+//                        +"If you are a maintainer of the library or considering to be one, then this talk is for you."
+//                        br {}
+//                        +"We'll talk about compatibility between different library versions and various instruments that help developer to track it."
+//                        +"We'll also take a look at evolving your library's API, what are the best ways to add new declarations and to remove old ones."
+//                    }
+//                    p {
+//                        +"Most of the themes are illustrated with examples from well-known Kotlin libraries, such as kotlinx.coroutines and kotlinx.serialization."
+//                    }
+//                }
+//            )
             val CompilerLies by Talk(
                 title = "Lies Told By The Kotlin Compiler",
                 speakers = listOf(Speaker.GarthGilmour),

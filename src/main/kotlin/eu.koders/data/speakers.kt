@@ -34,13 +34,13 @@ data class Speaker(
                 """.trimIndent(),
             company = ""
         )
-        val LeonidStartsev by Speaker(
-            name = "Leonid Startsev",
-            bio = """
-                    Developer in Kotlin Libraries team at JetBrains, maintainer of kotlinx.serialization.
-                """.trimIndent(),
-            company = "JetBrains"
-        )
+//        val LeonidStartsev by Speaker(
+//            name = "Leonid Startsev",
+//            bio = """
+//                    Developer in Kotlin Libraries team at JetBrains, maintainer of kotlinx.serialization.
+//                """.trimIndent(),
+//            company = "JetBrains"
+//        )
         val LiliiaAbdulina by Speaker(
             name = "Liliia Abdulina",
             bio = """
