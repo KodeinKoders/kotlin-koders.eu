@@ -123,6 +123,6 @@ val Workshops = functionalComponent<RProps> {
             margin(LinearDimension.auto)
         }
 
-        +"BUY BLIND BIRD!"
+        +"BUY A WORKSHOP TICKET!"
     }
 }

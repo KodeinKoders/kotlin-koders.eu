@@ -83,6 +83,7 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
         css {
             +koders.body
             color = KodersColors.dark
+            textAlign = TextAlign.justify
             "p" {
                 paddingBottom = 0.8.rem
             }

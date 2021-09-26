@@ -49,21 +49,21 @@ sealed class Session {
                     }
                 }
             )
-//            val EvolveLib by Talk(
-//                title = "How to evolve your Kotlin library painlessly",
-//                speakers = listOf(Speaker.LeonidStartsev),
-//                abstract = {
-//                    p {
-//                        +"If you are a maintainer of the library or considering to be one, then this talk is for you."
-//                        br {}
-//                        +"We'll talk about compatibility between different library versions and various instruments that help developer to track it."
-//                        +"We'll also take a look at evolving your library's API, what are the best ways to add new declarations and to remove old ones."
-//                    }
-//                    p {
-//                        +"Most of the themes are illustrated with examples from well-known Kotlin libraries, such as kotlinx.coroutines and kotlinx.serialization."
-//                    }
-//                }
-//            )
+            val KeepKotlinFun by Talk(
+                title = "Keep Kotlin Fun",
+                speakers = listOf(Speaker.SebastianAigner),
+                abstract = {
+                    p {
+                        +"From emoji generators to multiplayer games, tiny printer drivers, IoT-integrations, or Slack message parsers: "
+                        +"prototypes for strange ideas are a great driver for learning opportunities – even just to disprove that something is impossible."
+                    }
+                    p {
+                        +"I want to share with you the fun and excitement that comes from building something truly exciting, "
+                        +"the small ideas that keep us up at night until the first tiny proof of concept has been hacked together. "
+                        +"We’ll explore how Kotlin can empower us in making those things, through a blend of language features, libraries, and use cases that you might not come across every day."
+                    }
+                }
+            )
             val CompilerLies by Talk(
                 title = "Lies Told By The Kotlin Compiler",
                 speakers = listOf(Speaker.GarthGilmour),

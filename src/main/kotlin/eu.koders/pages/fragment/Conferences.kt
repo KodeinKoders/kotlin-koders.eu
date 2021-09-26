@@ -126,25 +126,6 @@ val Conferences = functionalComponent<RProps> {
 
             +"BUY BLIND BIRD!"
         }
-        styledSpan {
-            css {
-                padding(horizontal = 1.rem)
-                color = Color.koders.orange
-                fontWeight = FontWeight.medium
-            }
-            +"OR"
-        }
-        styledA(
-            href = "https://docs.google.com/forms/d/1Lw04egvA1srqM7BVYe37vcCRWJDMeCltCwaNomnOEAc",
-            target = "_blank"
-        ) {
-            css {
-                border = "none"
-                +koders.button
-            }
-
-            +"SUBMIT YOUR TALK!"
-        }
     }
 }
 

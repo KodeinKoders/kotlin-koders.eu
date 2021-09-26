@@ -76,6 +76,7 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
         css {
             +koders.body
             color = KodersColors.dark
+            textAlign = TextAlign.justify
         }
         +speaker.data.bio
     }

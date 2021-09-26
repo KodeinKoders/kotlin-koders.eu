@@ -34,13 +34,14 @@ data class Speaker(
                 """.trimIndent(),
             company = ""
         )
-//        val LeonidStartsev by Speaker(
-//            name = "Leonid Startsev",
-//            bio = """
-//                    Developer in Kotlin Libraries team at JetBrains, maintainer of kotlinx.serialization.
-//                """.trimIndent(),
-//            company = "JetBrains"
-//        )
+        val SebastianAigner by Speaker(
+            name = "Sebastian Aigner",
+            bio = """
+                    As a Kotlin Developer Advocate at JetBrains, Sebastian spends a lot of time thinking about how technologies can empower and delight people. 
+                    He loves building networked applications and using Kotlin on a multitude of platforms, as well as hacking up strange ideas late at night.
+                """.trimIndent(),
+            company = "JetBrains"
+        )
         val LiliiaAbdulina by Speaker(
             name = "Liliia Abdulina",
             bio = """
