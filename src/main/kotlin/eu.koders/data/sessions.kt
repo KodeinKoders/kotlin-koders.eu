@@ -93,12 +93,12 @@ sealed class Session {
                 speakers = listOf(Speaker.KarinAleksandraMonoid),
                 abstract = {
                     p {
-                        +"Migrating from Jackson to kotlinx.serialization may be quite a challenge due to differences in approaches."
-                        +"One of them is not having a global naming strategy."
+                        +"Migrating from Jackson to kotlinx.serialization may be quite a challenge due to differences in approaches. "
+                        +"One of them is not having a global naming strategy. "
                         +"But can we solve this? Sure, we can with Arrow Meta."
                     }
                     p {
-                        +"Arrow Meta is a functional companion to Kotlin's compiler."
+                        +"Arrow Meta is a functional companion to Kotlin's compiler. "
                         +"This library opens a way to write compiler plugins, linters and other source transformations."
                     }
                     p {
@@ -108,6 +108,197 @@ sealed class Session {
                             li { +"Overview of Arrow Meta features." }
                             li { +"Use case: Adding a global naming strategy to Kotlin Serialization." }
                         }
+                    }
+                }
+            )
+            val KotlinAdoptionAtScale by Talk(
+                title = "Kotlin Adoption at Scale",
+                speakers = listOf(Speaker.SergeiRybalkin, Speaker.SergeyRyabov),
+                abstract = {
+                    p {
+                        +"Usually, Kotlin adoption is a smooth process: do some initial configuration and then follow the typical flow \"writing code → building code → shipping code\". "
+                        +"But turns out this experience does not scale well for a really big project."
+                    }
+                    p {
+                        +"Two Sergei s will walk you through the Kotlin adoption journey at Facebook. "
+                        +"You will learn what problems speakers have encountered while trying to bring a new programming language into the biggest mobile codebase: from infrastructure support to hardcode JVM bytecode optimizations. Contains bloody DEX code."
+                    }
+                }
+            )
+            val KMPAtDeezer by Talk(
+                title = "How we moved to KMP at Deezer",
+                speakers = listOf(Speaker.AnthonyPages, Speaker.GeoffreyMetais),
+                abstract = {
+                    p {
+                        +"After benchmarking cross-platform technologies, we decide to set up KMP at Deezer."
+                    }
+                    p {
+                        +"How did we integrated this new technology with our three main platforms: Android, iOS and Web? "
+                        +"How did we deal with the stacks specific needs? How did the technology been accepted by ours stacks? Here is our Story..."
+                    }
+                }
+            )
+            val FunctionalInSpringBoot by Talk(
+                title = "From annotation-based configuration to functional in Spring Boot apps with Kotlin",
+                speakers = listOf(Speaker.NicolasFrankel),
+                abstract = {
+                    p {
+                        +"In the latest years, there has been some push-back against frameworks, and more specifically annotations: some call them magic. "
+                        +"Obviously, they make understanding the flow of the application harder."
+                    }
+                    p {
+                        +"Spring and Spring Boot latest versions go along this trend, by offering an additional way to configure beans with explicit code instead of annotations. "
+                        +"It’s declarative in the sense it looks like configuration, though it’s based on Domain-Specific Language(s). "
+                        +"This talk aims to demo a step-by-step process to achieve that."
+                    }
+                }
+            )
+            val http4KLiveCoding by Talk(
+                title = "Live coding server as a function with http4k",
+                speakers = listOf(Speaker.DmitryKandalov),
+                abstract = {
+                    p {
+                        +"Http4k is a lightweight HTTP library written in Kotlin that enables serving and consuming of HTTP services in a functional and testable way. "
+                        +"Unlike many other libraries and frameworks which have complicated abstractions and workflows, http4k captures the essence of communication over HTTP with a few simple concepts. "
+                        +"In this session I will explain and demo the core concepts in http4k by live coding from scratch an HTTP server which will simulate the board from the noughts and crosses game."
+                    }
+                }
+            )
+            val CICDWithKotlin by Talk(
+                title = "Winning CI/CD with Kotlin",
+                speakers = listOf(Speaker.ZanMarkan),
+                abstract = {
+                    p {
+                        +"DevOps teams often have to build and maintain their own CI/CD pipelines. "
+                        +"This at first seems straightforward to implement and maintain. "
+                        +"Yet it can often quickly become a tedious time sink and a source of universal frustration on many teams."
+                    }
+                    p {
+                        +"From flaky builds, to long running builds, to flaky long running builds, the sources of frustration are endless. "
+                        +"With the goal to ship more and faster as well as to compete in an ever changing industry, we can (and must) do better."
+                    }
+                    p {
+                        +"This talk will cover best practices for performance, stability, security, and maintainability of CI/CD pipelines focusing on Kotlin projects, each supported with practical examples and counterexamples."
+                    }
+                }
+            )
+            val QuickStartKMP by Talk(
+                title = "Quick start native mobile Kotlin/Multiplatform setup",
+                speakers = listOf(Speaker.SalomonBrys),
+                abstract = {
+                    p {
+                        +"Kotlin/Multiplatform is a complicated piece of tech! Because it chose to integrate inside native development tools & workflows, setting up a clean and shareable project can be complicated. "
+                        +"Here’s everything you need to set up a production ready architecture."
+                    }
+                    p {
+                        +"In this talk, we will explain how to architecture your code for a multi-platform mobile application, "
+                        +"how to efficiently share business & behaviour code between your native apps, and how to configure each project (Common, Android & iOS) to link them to the business library. "
+                        +"We’ll discuss various patterns that we can use to standardise communication between the frontend (the UI) and the backend (the business logic) to ensure that the behaviour of our application remains strictly equivalent no matter the actual platform. "
+                        +"We’ll also show how to automatically test your common code, and how to deploy the various produced artifacts when working with application specific teams."
+                    }
+                }
+            )
+            val HighPerformanceWwithIdiomaticKotlin  by Talk(
+                title = "High performance with idiomatic Kotlin",
+                speakers = listOf(Speaker.MagdaMiu),
+                abstract = {
+                    p {
+                        +"We develop software for people, and performance has a direct impact on the user experience."
+                    }
+                    p {
+                        +"This presentation will include details about why high performance is essential when we build software products, "
+                        +"an overview of the most common reasons for performance issues, and how Kotlin’s features could be applied to prevent them."
+                    }
+                    p {
+                        +"The talk is for all the developers who would like to learn more about how Kotlin works under the hood and why it is a pragmatic language."
+                    }
+                    p {
+                        +"So join me at this session, and let’s discover together why Kotlin is loved by the developers and how we can write idiomatic Kotlin code to develop quality products that bring joy to our users."
+                    }
+                }
+            )
+            val AnimatingCompose  by Talk(
+                title = "Intro to Animating things with Jetpack Compose",
+                speakers = listOf(Speaker.ThomasPucci),
+                abstract = {
+                    p {
+                        +"You have probably heard about Jetpack Compose, the Android way to build Declarative UI! "
+                        +"How to create SOLID Animations in Jetpack Compose? "
+                    }
+                    p {
+                        +"I recreated some famous apps animations in Jetpack Compose. And I share with you what I learned from it."
+                    }
+                }
+            )
+            val ReliableWebServices  by Talk(
+                title = "Building reliable web services with Kotlin Ktor",
+                speakers = listOf(Speaker.JulienSalvi),
+                abstract = {
+                    p {
+                        +"Through this live coding session, you will learn how to setup a Kotlin Ktor project with some routes "
+                        +"using the framework tools and features (Routing, DataConversion, ContentNegotiation...) and communicate with a sample Android app."
+                    }
+                    p {
+                        +"Let see how we can easily setup a Postgres database connection with Exposed, an ORM library for Kotlin and see how clean architecture can be a good choice for developing your brand new API."
+                    }
+                    p {
+                        +"We can even go further and see that we can actually share code between your backend application and your Android application (say hi to Swagger!)."
+                    }
+                }
+            )
+            val GradleKotlinDSL  by Talk(
+                title = "Gradle: a deeper look at the Kotlin DSL",
+                speakers = listOf(Speaker.MartinBonnin),
+                abstract = {
+                    p {
+                        +"Originally designed for Groovy, Gradle now supports writing scripts in Kotlin. "
+                        +"Writing your scripts in Kotlin brings more compile-type safety and IDE features but also has a few drawbacks."
+                    }
+                    p {
+                        +"In this talk, we will take a look some widely used Groovy constructs, their Kotlin equivalent and what’s happening under the hood. "
+                        +"We will explore how Gradle loads scripts and uses Kotlin compiler flags to allow a the Kotlin DSL syntax."
+                    }
+                    p {
+                        +"We will also look at the limitation like compilation time and fixed Kotlin runtime version and how to mitigate them."
+                    }
+                }
+            )
+            val KotlinNativeFromTheTrenches  by Talk(
+                title = "Kotlin Native from the trenches",
+                speakers = listOf(Speaker.GaetanZoritchak),
+                abstract = {
+                    p {
+                        +"This presentation will share our feedback on the challenges we faced to provide an iOS version of our multiplatform dataviz library: "
+                        ul {
+                            li { +"interop with low-level objective C APIs" }
+                            li { +"providing an easy of use library for Kotlin developers" }
+                            li { +"integration into iOS projects" }
+                        }
+                    }
+                }
+            )
+            val ExploringAdvancedCompose  by Talk(
+                title = "Exploring Advanced Jetpack Compose Features",
+                speakers = listOf(Speaker.FilipBabic),
+                abstract = {
+                    p {
+                        +"In this talk, we’ll dive into more \"advanced\" Jetpack Compose features that rely on architecture, generics and meaningful motion. "
+                        +"These are all topics that go beyond the basics of creating Compose UI, that are crucial in every app!"
+                    }
+                    p {
+                        +"W’ll explore state handling and reactive and uniform data flow structures - how to connect Compose components to observable structures such as LiveData, coroutine Flows, Rx and finally State structures from the Compose framework. "
+                        +"You’ll learn how to show different types of UI based on state and how Compose reacts to state changes to re-draw the UI."
+                    }
+                    p {
+                        +"Next, you’ll learn about beautiful and easy to implement animations and how to use the Transition API to animate multiple states at the same time. "
+                        +"Finally, once you create the animations, you’ll learn how to apply the state from them to your UI for smooth screen transitions."
+                    }
+                    p {
+                        +"And last, but not least, we’ll talk about code reusability through generics and generic Composable functions. "
+                        +"With the power of Kotlin and its strong type system, in pair with Compose being fully written in Kotlin and relying on functions, you can create truly reusable generic components, without much code."
+                    }
+                    p {
+                        +"Join me in this talk and you’ll get a better sense of how awesome Compose can be!"
                     }
                 }
             )
@@ -161,7 +352,7 @@ sealed class Session {
             )
             val Multiplatform by Workshop(
                 title = "Kotlin Multiplatform for native mobile applications",
-                speakers = listOf(Speaker.SalomonBrys),
+                speakers = listOf(Speaker.SalomonBrys, Speaker.RomainBoisselle),
                 abstract = {
                     p { +"In recent years, Kotlin/Multiplatform has become one of the most hot topic in both Kotlin & the mobile application industry. Its novel promise makes a lot of sense to seasoned application creators: only share business code, and leave UI & platform integration code to the platform itself & its experts." }
                     p { +"In this workshop we'll learn how to leverage the Kotlin language and tooling to create shared business and behaviour code across major mobile platforms: Android, iOS and the Web. We'll see how to define the architecture of our applications, create the necessary abstractions for code sharing, how to test our code on each platforms, and how to deploy and integrate our common code in each platform." }

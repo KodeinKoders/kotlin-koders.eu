@@ -4,7 +4,7 @@ package eu.koders.data
 data class Speaker(
     val name: String,
     val bio: String,
-    val company: String,
+    val company: String = "",
 ) {
     companion object : DataHolder<Speaker>() {
         val GarthGilmour by Speaker(
@@ -32,7 +32,6 @@ data class Speaker(
                     Currently she is specializing in Kotlin and advocating for functional programming (the good parts!).
                     She probably tried your favorite backend language on frontend (Scala.js and Kotlin/JS).
                 """.trimIndent(),
-            company = ""
         )
         val SebastianAigner by Speaker(
             name = "Sebastian Aigner",
@@ -58,6 +57,118 @@ data class Speaker(
                     Deeply rooted in the Open-Source philosophy, he is dedicated to making tools and libraries to make programming easier, safer, and more exciting.
                     He is a Kotlin GDE, Kotlin certified trainer, KUG Paris co-organiser, and conference speaker.
                     He also loves dancing Rock'n'Roll, playing boardgames, and flying small planes.
+                """.trimIndent(),
+            company = "KODEIN Koders"
+        )
+        val SergeiRybalkin by Speaker(
+            name = "Sergei Rybalkin",
+            bio = """
+                    Software Engineer @ Facebook (Kotlin Foundation team)
+                    Sergei has been working with JVM-based languages for more than 8 years. At Facebook, he is adopting and optimizing Kotlin for Android. Before joining Facebook Sergey worked on Kotlin adoption for the server-side and frameworks at Alibaba Group. Now he develops and maintains Kohttp, a Kotlin DSL HTTP client and Redex, an Android bytecode optimizer.
+                """.trimIndent(),
+            company = "Facebook"
+        )
+        val SergeyRyabov by Speaker(
+            name = "Sergey Ryabov",
+            bio = """
+                    Sergey is a developer from London who paused his nomadic lifestyle to feel the scale and peculiarities of working in Big Tech for himself. At Facebook, he works on Android UI Frameworks, Backend-Driven UI, and helps with the implementation of Kotlin into the largest mobile codebase. In the past, he was involved in the organization of the Kotlin User Group in St. Petersburg and the Android Academy schools in St. Petersburg and Moscow. Has been writing in Kotlin since traits.
+                """.trimIndent(),
+            company = "Facebook"
+        )
+        val DmitryKandalov by Speaker(
+            name = "Dmitry Kandalov",
+            bio = """
+                    Dmitry has been programming since DOS times. He spent the last 15 years or so in Java lands most recently working with server-side Kotlin.
+                """.trimIndent(),
+            company = "Code Mine"
+        )
+        val AnthonyPages by Speaker(
+            name = "Anthony Pages",
+            bio = """
+                    Lead KMP at Deezer.
+                """.trimIndent(),
+            company = "Deezer"
+        )
+        val GeoffreyMetais by Speaker(
+            name = "Geoffrey Metais",
+            bio = """
+                    Lead KMP at Deezer.
+                """.trimIndent(),
+            company = "Deezer"
+        )
+        val NicolasFrankel by Speaker(
+            name = "Nicolas Fränkel",
+            bio = """
+                    Developer Advocate with 15+ years experience consulting for many different customers, in a wide range of contexts (such as telecoms, banking, insurances, large retail and public sector). 
+                    Usually working on Java/Java EE and Spring technologies, but with focused interests like Rich Internet Applications, Testing, CI/CD and DevOps. 
+                    Currently working for Hazelcast. Also double as a trainer and triples as a book author.
+                """.trimIndent(),
+            company = "Hazelcast"
+        )
+        val ZanMarkan by Speaker(
+            name = "Zan Markan",
+            bio = """
+                    Zan Markan is a developer advocate at CircleCI, on a mission to educate and inspire developers on the topics of CI/CD, DevOps, and software quality. 
+                    Across his career he has worked in companies of various sizes, from enterprises to own startups, and everything in between, and across industries as diverse as retail, AI, and developer tools. 
+                    He’s passionate about serverless technologies, mobile development, and developer experience. 
+                    Outside of work, he enthuses over airplanes, craft beer, and the Oxford comma.
+                """.trimIndent(),
+            company = "CircleCI"
+        )
+        val MagdaMiu by Speaker(
+            name = "Magda Miu",
+            bio = """
+                    Magda Miu is a tech leader, and Google Developers Expert for Android with more than 10 years of experience in software development. 
+                    Her role as a leader is to build and empower high-performing teams to design and create outstanding customer-centric products. Also, she is a promoter of digital communities in Romania, an international speaker, trainer, and mentor.
+                """.trimIndent(),
+        )
+        val ThomasPucci by Speaker(
+            name = "Thomas Pucci",
+            bio = """
+                    Former React-Native expert, I jumped in Kotlin Android App development 3 years ago. I work at BAM as Head of Native and manage several developer teams working in Kotlin and Swift.
+                    I share my thoughts about Kotlin and Android on Twitter and like to experiment in Jetpack Compose on my spare time !
+                """.trimIndent(),
+            company = "BAM"
+        )
+        val JulienSalvi by Speaker(
+            name = "Julien Salvi",
+            bio = """
+                    Into the Android world for almost 10 years (scary Eclipse dark time!), I experienced California startup way of life before coming back to France. 
+                    I am currently a Senior Android Engineer at Aircall where we are building the best phone system for modern businesses. 
+                    Alongside Android, I have a great interest in backend development with Kotlin and AR/VR technology. 
+                    In 2021, I became an Android GDE to continue my journey to always share and learn with the Android community. 
+                    On my spare time, I am a world traveler and a beer lover always looking for the best IPAs!
+                """.trimIndent(),
+            company = "Aircall"
+        )
+        val MartinBonnin by Speaker(
+            name = "Martin Bonnin",
+            bio = """
+                    Parisian developer with a thing for type safe APIs and Chocolate Bugdroids 🍫
+                """.trimIndent(),
+            company = "ApolloGraphQL"
+        )
+        val GaetanZoritchak by Speaker(
+            name = "Gaetan Zoritchak",
+            bio = """
+                    Early Adopter of Kotlin, I’m working on dataviz and charting multiplatform libraries
+                """.trimIndent(),
+            company = "data2viz"
+        )
+        val FilipBabic by Speaker(
+            name = "Filip Babić",
+            bio = """
+                    Filip Babić is a senior Android developer from Croatia, and a Google Developer Expert for Android & Kotlin. 
+                    He’s currently working on building awesome things with Jetpack Compose, teaching people about topics in Android and Kotlin and sharing his knowledge in various types of community engagement.
+                """.trimIndent(),
+            company = "Stream"
+        )
+        val RomainBoisselle by Speaker(
+            name = "Romain Boisselle",
+            bio = """
+                    Romain has been coding for almost 15 years. For some times, he has been working on server side architectures with Java, then with Kotlin since its early days. 
+                    He added a new string to its bow at KotlinConf 2018, where he met Salomon and started contributing to Kodein-DI, the very first Kotlin/Multiplatform community library.
+                    He loves wild spaces, mountain hikes and climbing.
                 """.trimIndent(),
             company = "KODEIN Koders"
         )
