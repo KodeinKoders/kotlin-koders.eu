@@ -1,6 +1,7 @@
 package eu.koders.data
 
 import eu.koders.charter.koders
+import eu.koders.data.SessionDuration.*
 import kotlinx.css.Color
 import kotlinx.css.color
 import kotlinx.css.properties.TextDecoration
@@ -17,6 +18,7 @@ sealed class Session {
     abstract val title: String
     abstract val speakers: List<Data<Speaker>>
     abstract val abstract: RRender
+    abstract val duration: SessionDuration
 
     companion object : DataHolder<Session>() {
         fun load() {
@@ -27,10 +29,14 @@ sealed class Session {
 
     data class Talk(
         override val title: String,
-        override val speakers: List<Data<Speaker>>,
-        override val abstract: RRender
+        override val speakers: List<Data<Speaker>> = emptyList(),
+        override val abstract: RRender = {},
+        override val duration: SessionDuration,
     ) : Session() {
         companion object : DataHolder<Talk>(Session) {
+            val Opening by Talk(title = "Opening", duration = SHORT)
+            val Break by Talk(title = "Break", duration = SHORT)
+            val LongBreak by Talk(title = "Break", duration = LONG)
             val KmmGraphQL by Talk(
                 title = "Using GraphQL in a KMM project with Jetpack Compose and SwiftUI",
                 speakers = listOf(Speaker.JohnOReilly),
@@ -38,7 +44,8 @@ sealed class Session {
                     p {
                         +"This is a live coding based talk in which John will show how GraphQL, using the Apollo library, can be used in shared code in a Kotlin Multiplatform project with the UI developed using Jetpack Compose on Android and SwiftUI on iOS."
                     }
-                }
+                },
+                duration = LONG
             )
             val NewInKMP by Talk(
                 title = "What's new in Kotlin Multiplatform",
@@ -47,7 +54,8 @@ sealed class Session {
                     p {
                         +"To be announced... Stay in touch!"
                     }
-                }
+                },
+                duration = LONG
             )
             val KeepKotlinFun by Talk(
                 title = "Keep Kotlin Fun",
@@ -62,7 +70,8 @@ sealed class Session {
                         +"the small ideas that keep us up at night until the first tiny proof of concept has been hacked together. "
                         +"We’ll explore how Kotlin can empower us in making those things, through a blend of language features, libraries, and use cases that you might not come across every day."
                     }
-                }
+                },
+                duration = LONG
             )
             val CompilerLies by Talk(
                 title = "Lies Told By The Kotlin Compiler",
@@ -86,7 +95,8 @@ sealed class Session {
                             +"See announcement article."
                         }
                     }
-                }
+                },
+                duration = LONG
             )
             val ArrowMetaSerialization by Talk(
                 title = "Extending kotlinx.serialization functionality with Arrow Meta",
@@ -109,7 +119,8 @@ sealed class Session {
                             li { +"Use case: Adding a global naming strategy to Kotlin Serialization." }
                         }
                     }
-                }
+                },
+                duration = LONG
             )
             val KotlinAdoptionAtScale by Talk(
                 title = "Kotlin Adoption at Scale",
@@ -123,7 +134,8 @@ sealed class Session {
                         +"Two Sergei s will walk you through the Kotlin adoption journey at Facebook. "
                         +"You will learn what problems speakers have encountered while trying to bring a new programming language into the biggest mobile codebase: from infrastructure support to hardcode JVM bytecode optimizations. Contains bloody DEX code."
                     }
-                }
+                },
+                duration = LONG
             )
             val KMPAtDeezer by Talk(
                 title = "How we moved to KMP at Deezer",
@@ -136,7 +148,8 @@ sealed class Session {
                         +"How did we integrated this new technology with our three main platforms: Android, iOS and Web? "
                         +"How did we deal with the stacks specific needs? How did the technology been accepted by ours stacks? Here is our Story..."
                     }
-                }
+                },
+                duration = SHORT
             )
             val FunctionalInSpringBoot by Talk(
                 title = "From annotation-based configuration to functional in Spring Boot apps with Kotlin",
@@ -151,7 +164,8 @@ sealed class Session {
                         +"It’s declarative in the sense it looks like configuration, though it’s based on Domain-Specific Language(s). "
                         +"This talk aims to demo a step-by-step process to achieve that."
                     }
-                }
+                },
+                duration = LONG
             )
             val http4KLiveCoding by Talk(
                 title = "Live coding server as a function with http4k",
@@ -162,7 +176,8 @@ sealed class Session {
                         +"Unlike many other libraries and frameworks which have complicated abstractions and workflows, http4k captures the essence of communication over HTTP with a few simple concepts. "
                         +"In this session I will explain and demo the core concepts in http4k by live coding from scratch an HTTP server which will simulate the board from the noughts and crosses game."
                     }
-                }
+                },
+                duration = LONG
             )
             val CICDWithKotlin by Talk(
                 title = "Winning CI/CD with Kotlin",
@@ -180,7 +195,8 @@ sealed class Session {
                     p {
                         +"This talk will cover best practices for performance, stability, security, and maintainability of CI/CD pipelines focusing on Kotlin projects, each supported with practical examples and counterexamples."
                     }
-                }
+                },
+                duration = SHORT
             )
             val QuickStartKMP by Talk(
                 title = "Quick start native mobile Kotlin/Multiplatform setup",
@@ -196,7 +212,8 @@ sealed class Session {
                         +"We’ll discuss various patterns that we can use to standardise communication between the frontend (the UI) and the backend (the business logic) to ensure that the behaviour of our application remains strictly equivalent no matter the actual platform. "
                         +"We’ll also show how to automatically test your common code, and how to deploy the various produced artifacts when working with application specific teams."
                     }
-                }
+                },
+                duration = SHORT
             )
             val HighPerformanceWwithIdiomaticKotlin  by Talk(
                 title = "High performance with idiomatic Kotlin",
@@ -215,7 +232,8 @@ sealed class Session {
                     p {
                         +"So join me at this session, and let’s discover together why Kotlin is loved by the developers and how we can write idiomatic Kotlin code to develop quality products that bring joy to our users."
                     }
-                }
+                },
+                duration = LONG
             )
             val AnimatingCompose  by Talk(
                 title = "Intro to Animating things with Jetpack Compose",
@@ -228,7 +246,8 @@ sealed class Session {
                     p {
                         +"I recreated some famous apps animations in Jetpack Compose. And I share with you what I learned from it."
                     }
-                }
+                },
+                duration = SHORT
             )
             val ReliableWebServices  by Talk(
                 title = "Building reliable web services with Kotlin Ktor",
@@ -244,7 +263,8 @@ sealed class Session {
                     p {
                         +"We can even go further and see that we can actually share code between your backend application and your Android application (say hi to Swagger!)."
                     }
-                }
+                },
+                duration = LONG
             )
             val GradleKotlinDSL  by Talk(
                 title = "Gradle: a deeper look at the Kotlin DSL",
@@ -261,7 +281,8 @@ sealed class Session {
                     p {
                         +"We will also look at the limitation like compilation time and fixed Kotlin runtime version and how to mitigate them."
                     }
-                }
+                },
+                duration = SHORT
             )
             val KotlinNativeFromTheTrenches  by Talk(
                 title = "Kotlin Native from the trenches",
@@ -275,7 +296,8 @@ sealed class Session {
                             li { +"integration into iOS projects" }
                         }
                     }
-                }
+                },
+                duration = LONG
             )
             val ExploringAdvancedCompose  by Talk(
                 title = "Exploring Advanced Jetpack Compose Features",
@@ -300,7 +322,14 @@ sealed class Session {
                     p {
                         +"Join me in this talk and you’ll get a better sense of how awesome Compose can be!"
                     }
-                }
+                },
+                duration = LONG
+            )
+            val KMPLightningNode  by Talk(
+                title = "To be announced",
+                speakers = listOf(),
+                abstract = {},
+                duration = SHORT
             )
         }
     }
@@ -310,7 +339,8 @@ sealed class Session {
         override val speakers: List<Data<Speaker>>,
         override val abstract: RRender,
         val requirements: RRender,
-        val content: List<String>
+        val content: List<String>,
+        override val duration: SessionDuration = DAY
     ) : Session() {
         companion object : DataHolder<Workshop>(Session) {
             val Spring by Workshop(
@@ -373,3 +403,5 @@ sealed class Session {
         }
     }
 }
+
+enum class SessionDuration { LONG, SHORT, DAY }

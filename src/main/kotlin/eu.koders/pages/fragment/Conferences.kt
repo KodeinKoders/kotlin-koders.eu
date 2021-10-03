@@ -4,6 +4,7 @@ import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
 import eu.koders.components.Section
 import eu.koders.data.Data
+import eu.koders.data.Session
 import eu.koders.data.Speaker
 import eu.koders.utils.*
 import kotlinx.css.*
@@ -71,6 +72,19 @@ val Conferences = functionalComponent<RProps> {
         }
     }
 
+    styledP {
+        css {
+            +koders.chapo
+            color = Color.koders.orange
+            specific {
+                textAlign = TextAlign.center
+            }
+            margin(LinearDimension.auto, 4.rem)
+        }
+
+        +"Join us to hear about the future of Kotlin, with key industry speakers!"
+    }
+
     flexRow(justifyContent = JustifyContent.center) {
         css {
             flexWrap = FlexWrap.wrap
@@ -97,7 +111,64 @@ val Conferences = functionalComponent<RProps> {
             margin(LinearDimension.auto, 4.rem)
         }
 
-        +"Join us to hear about the future of Kotlin, with key industry speakers!"
+        +"Schedule"
+    }
+
+    flexRow {
+        css {
+            margin(horizontal = LinearDimension.auto)
+            maxWidth(780) {
+                display = Display.none
+            }
+        }
+        styledDiv { css { flexGrow = 1.0 } }
+        child(ScheduleHours)
+        child(Auditorium)
+        child(Loft)
+        child(ScheduleHours)
+        styledDiv { css { flexGrow = 1.0 } }
+    }
+
+    flexColumn {
+        css {
+            margin(horizontal = LinearDimension.auto)
+            minWidth(779) {
+                display = Display.none
+            }
+        }
+
+        styledP {
+            css {
+                +koders.display1
+                color = Color.koders.kinzolin
+                height = 3.rem
+                margin(horizontal = LinearDimension.auto)
+            }
+            +"Auditorium"
+        }
+
+        flexRow {
+            styledDiv { css { flexGrow = 1.0 } }
+            child(ScheduleHours)
+            child(Auditorium)
+            styledDiv { css { flexGrow = 1.0 } }
+        }
+
+        styledP {
+            css {
+                +koders.display1
+                color = Color.koders.kinzolin
+                height = 3.rem
+                margin(horizontal = LinearDimension.auto)
+            }
+            +"Loft"
+        }
+        flexRow {
+            styledDiv { css { flexGrow = 1.0 } }
+            child(ScheduleHours)
+            child(Loft)
+            styledDiv { css { flexGrow = 1.0 } }
+        }
     }
 
     styledP {

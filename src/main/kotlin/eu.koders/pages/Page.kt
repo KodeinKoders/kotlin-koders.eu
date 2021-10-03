@@ -48,7 +48,7 @@ val Page = functionalComponent<RouteProps> { props ->
             }
         }
 
-        child(Venue)
+//        child(Venue)
     }
 
     child(Section) {
