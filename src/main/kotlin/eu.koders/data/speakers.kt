@@ -115,13 +115,6 @@ data class Speaker(
                 """.trimIndent(),
             company = "CircleCI"
         )
-        val MagdaMiu by Speaker(
-            name = "Magda Miu",
-            bio = """
-                    Magda Miu is a tech leader, and Google Developers Expert for Android with more than 10 years of experience in software development. 
-                    Her role as a leader is to build and empower high-performing teams to design and create outstanding customer-centric products. Also, she is a promoter of digital communities in Romania, an international speaker, trainer, and mentor.
-                """.trimIndent(),
-        )
         val ThomasPucci by Speaker(
             name = "Thomas Pucci",
             bio = """
@@ -171,6 +164,25 @@ data class Speaker(
                     He loves wild spaces, mountain hikes and climbing.
                 """.trimIndent(),
             company = "KODEIN Koders"
+        )
+        val DominiquePadiou by Speaker(
+            name = "Dominique Padiou",
+            bio = """
+                    Dominique is the developer behind Eclair Mobile, Phoenix and Strike. 
+                    He believes that a lean and simple user experience is one Lightning's key challenges. 
+                    He's determined to make Lightning easy to use and Bitcoin accessible to everyone.
+                """.trimIndent(),
+            company = "ACINQ"
+        )
+        val AydarMukhametzyanov by Speaker(
+            name = "Aydar Mukhametzyanov",
+            bio = """
+                I had been developing iOS applications since iOS 5 in a mobile agency, 
+                in a large and cozy 2GIS, and Freeletics in Munich. I currently work at JetBrains, 
+                AppCode team, but still remember how it feels to be a mobile developer. 
+                I write code in Kotlin/Java so that people are comfortable writing in Swift/Objective-C.
+            """.trimIndent(),
+            company = "JetBrains"
         )
     }
 }

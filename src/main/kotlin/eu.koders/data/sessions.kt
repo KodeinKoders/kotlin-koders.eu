@@ -86,7 +86,7 @@ sealed class Session {
                         +"In this talk Garth Gilmour will lift the lid on some of the tricks the Kotlin compiler (with plug-ins) uses to keep your coding life simple, plus show when and how you can influence its output."
                     }
                     p {
-                        styledA(href = "https://instil.co/news/kotlin-koders-2021/"){
+                        styledA(href = "https://instil.co/news/kotlin-koders-2021/") {
                             css {
                                 textDecoration = TextDecoration(setOf(TextDecorationLine.underline))
                                 color = Color.koders.krouille
@@ -215,27 +215,7 @@ sealed class Session {
                 },
                 duration = SHORT
             )
-            val HighPerformanceWwithIdiomaticKotlin  by Talk(
-                title = "High performance with idiomatic Kotlin",
-                speakers = listOf(Speaker.MagdaMiu),
-                abstract = {
-                    p {
-                        +"We develop software for people, and performance has a direct impact on the user experience."
-                    }
-                    p {
-                        +"This presentation will include details about why high performance is essential when we build software products, "
-                        +"an overview of the most common reasons for performance issues, and how Kotlin’s features could be applied to prevent them."
-                    }
-                    p {
-                        +"The talk is for all the developers who would like to learn more about how Kotlin works under the hood and why it is a pragmatic language."
-                    }
-                    p {
-                        +"So join me at this session, and let’s discover together why Kotlin is loved by the developers and how we can write idiomatic Kotlin code to develop quality products that bring joy to our users."
-                    }
-                },
-                duration = LONG
-            )
-            val AnimatingCompose  by Talk(
+            val AnimatingCompose by Talk(
                 title = "Intro to Animating things with Jetpack Compose",
                 speakers = listOf(Speaker.ThomasPucci),
                 abstract = {
@@ -249,7 +229,7 @@ sealed class Session {
                 },
                 duration = SHORT
             )
-            val ReliableWebServices  by Talk(
+            val ReliableWebServices by Talk(
                 title = "Building reliable web services with Kotlin Ktor",
                 speakers = listOf(Speaker.JulienSalvi),
                 abstract = {
@@ -266,7 +246,7 @@ sealed class Session {
                 },
                 duration = LONG
             )
-            val GradleKotlinDSL  by Talk(
+            val GradleKotlinDSL by Talk(
                 title = "Gradle: a deeper look at the Kotlin DSL",
                 speakers = listOf(Speaker.MartinBonnin),
                 abstract = {
@@ -284,7 +264,7 @@ sealed class Session {
                 },
                 duration = SHORT
             )
-            val KotlinNativeFromTheTrenches  by Talk(
+            val KotlinNativeFromTheTrenches by Talk(
                 title = "Kotlin Native from the trenches",
                 speakers = listOf(Speaker.GaetanZoritchak),
                 abstract = {
@@ -299,7 +279,7 @@ sealed class Session {
                 },
                 duration = LONG
             )
-            val ExploringAdvancedCompose  by Talk(
+            val ExploringAdvancedCompose by Talk(
                 title = "Exploring Advanced Jetpack Compose Features",
                 speakers = listOf(Speaker.FilipBabic),
                 abstract = {
@@ -325,11 +305,35 @@ sealed class Session {
                 },
                 duration = LONG
             )
-            val KMPLightningNode  by Talk(
-                title = "To be announced",
-                speakers = listOf(),
-                abstract = {},
+            val KMPLightningNode by Talk(
+                title = "Kotlin Multiplatform Mobile case study, with Phoenix and Bitcoin",
+                speakers = listOf(Speaker.DominiquePadiou),
+                abstract = {
+                    p {
+                        +"At ACINQ we have been developing complex Bitcoin mobile applications running on Android and the JVM. "
+                        +"In order to also support iOS, we moved to Kotlin Multiplatform."
+                    }
+                    p {
+                        +"We'll talk about our experience of migrating a large codebase from Scala to Kotlin Multiplatform, "
+                        +"with some focus on how we leveraged the device's native cryptography API. "
+                        +"We'll also look into the KMM module shared between the Android and the iOS apps, "
+                        +"and give you some feedback regarding the iOS developers' experience."
+                    }
+                },
                 duration = SHORT
+            )
+            val BridgingKotlinAndSwift by Talk(
+                title = "Bridging the gap between Kotlin and Swift",
+                speakers = listOf(Speaker.AydarMukhametzyanov),
+                abstract = {
+                    p {
+                        +"Tooling and technologies around Kotlin Multiplatform always leave Apple platforms a little overboard. "
+                        +"After all, Kotlin is a part of Android development, not in iOS. I will tell you what we do to fix it. "
+                        +"You will learn about the Kotlin Multiplatform Mobile plugin for AppCode, what it was created for, and what it can do at the moment. "
+                        +"I will show the latest developments in the Kotlin Multiplatform, and will tell you how they work from the inside."
+                    }
+                },
+                duration = LONG
             )
         }
     }
@@ -340,7 +344,7 @@ sealed class Session {
         override val abstract: RRender,
         val requirements: RRender,
         val content: List<String>,
-        override val duration: SessionDuration = DAY
+        override val duration: SessionDuration = DAY,
     ) : Session() {
         companion object : DataHolder<Workshop>(Session) {
             val Spring by Workshop(

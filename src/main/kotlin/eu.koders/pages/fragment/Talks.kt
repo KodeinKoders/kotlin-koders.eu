@@ -116,7 +116,6 @@ val Auditorium = functionalComponent<RProps> {
                 attrs.talk = it
             }
         }
-
     }
 }
 
@@ -125,10 +124,10 @@ val Loft = functionalComponent<RProps> {
         Session.Talk.KotlinAdoptionAtScale, Session.Talk.KMPLightningNode,
         Session.Talk.Break, Session.Talk.ArrowMetaSerialization,
         Session.Talk.FunctionalInSpringBoot, Session.Talk.CICDWithKotlin,
-        Session.Talk.QuickStartKMP, Session.Talk.HighPerformanceWwithIdiomaticKotlin,
+        Session.Talk.QuickStartKMP, Session.Talk.ExploringAdvancedCompose,
         Session.Talk.AnimatingCompose, Session.Talk.Break,
         Session.Talk.KotlinNativeFromTheTrenches,
-        Session.Talk.ExploringAdvancedCompose,
+        Session.Talk.BridgingKotlinAndSwift,
     ))
 
     flexColumn {
@@ -163,6 +162,7 @@ val Loft = functionalComponent<RProps> {
                 height = 6.rem
                 backgroundColor = Color.koders.klycine.withAlpha(0.2)
             }
+
             styledSpan {
                 css {
                     display = Display.block
@@ -248,7 +248,11 @@ val TalkCell = functionalComponent<TalkProps> { props ->
 
                 speakers.forEachIndexed { index, speaker ->
                     +speaker.data.name
-                    +if (speakers.lastIndex != index) { ", " } else { " - " }
+                    +if (speakers.lastIndex != index) {
+                        ", "
+                    } else {
+                        " - "
+                    }
                 }
 
                 when (duration.name) {

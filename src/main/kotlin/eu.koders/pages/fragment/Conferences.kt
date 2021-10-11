@@ -5,6 +5,7 @@ import eu.koders.charter.koders
 import eu.koders.components.Section
 import eu.koders.data.Data
 import eu.koders.data.Session
+import eu.koders.data.SessionDuration
 import eu.koders.data.Speaker
 import eu.koders.utils.*
 import kotlinx.css.*
@@ -194,7 +195,7 @@ val Conferences = functionalComponent<RProps> {
                 +koders.button
             }
 
-            +"BUY BLIND BIRD!"
+            +"BUY EARLY BIRD!"
         }
     }
 }
@@ -263,7 +264,7 @@ val SpeakerLink = functionalComponent<SpeakerLinkProps> { props ->
             css {
                 fontFamily = koders.piconExtended
                 fontWeight = FontWeight.w900
-                fontSize = 1.4.rem
+                fontSize = 1.1.rem
                 portraitMobile {
                     fontSize = 1.2.rem
                 }

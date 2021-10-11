@@ -156,7 +156,7 @@ val Header = functionalComponent<RProps> {
                 margin(1.rem, LinearDimension.auto)
             }
 
-            +"BUY BLIND BIRD!"
+            +"BUY EARLY BIRD!"
         }
     }
 

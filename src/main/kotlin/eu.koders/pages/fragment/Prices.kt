@@ -51,7 +51,7 @@ val Prices = functionalComponent<RProps> {
             b("day") { +"Conference day" }
             span("date") { +"Thursday, December 2nd" }
             b("price") { +"80€" }
-            span("special") { +"(Blind Bird: 50€)" }
+            span("special") { +"(Early Bird: 64€)" }
         }
 
         flexColumn(alignItems = Align.center) {
@@ -71,7 +71,7 @@ val Prices = functionalComponent<RProps> {
             margin(LinearDimension.auto)
         }
 
-        +"BUY BLIND BIRD!"
+        +"BUY EARLY BIRD!"
     }
 
 }
