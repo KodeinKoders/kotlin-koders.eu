@@ -215,7 +215,8 @@ val TalkCell = functionalComponent<TalkProps> { props ->
         }
 
 
-        if (talk.equals("break", ignoreCase = true)) {
+        if (talk.equals("break", ignoreCase = true) ||
+            talk.equals("opening", ignoreCase = true)) {
             displayTalk(talk, speakers, duration)
         } else {
             styledA(href = "#/talk/${props.talk.id}") {
@@ -241,9 +242,12 @@ fun RBuilder.displayTalk(talk: String, speakers: List<Data<Speaker>>, duration: 
                     color = Color.koders.krouille
                 }
 
-                when (duration.name) {
-                    SessionDuration.LONG.name -> +" - 45 min"
-                    SessionDuration.SHORT.name -> +" - 20 min"
+                when {
+                    talk.equals("opening", ignoreCase = true) -> +" - 15 min"
+                    else -> when (duration.name) {
+                        SessionDuration.LONG.name -> +" - 60 min"
+                        SessionDuration.SHORT.name -> +" - 30 min"
+                    }
                 }
             }
         }

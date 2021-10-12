@@ -118,6 +118,7 @@ val Conferences = functionalComponent<RProps> {
     flexRow {
         css {
             margin(horizontal = LinearDimension.auto)
+            maxWidth = 90.rem
             maxWidth(780) {
                 display = Display.none
             }
