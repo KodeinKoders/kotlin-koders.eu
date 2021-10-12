@@ -5,6 +5,7 @@ data class Speaker(
     val name: String,
     val bio: String,
     val company: String = "",
+    val twitter: String = "",
 ) {
     companion object : DataHolder<Speaker>() {
         val GarthGilmour by Speaker(
@@ -15,7 +16,8 @@ data class Speaker(
                     He is a Kotlin GDE, author of over 20 courses, prolific conference speaker and co-organiser of the Belfast BASH Meetup and KUG.
                     Outside of work he is a martial arts instructor and weightlifter.
                 """.trimIndent(),
-            company = "Instil"
+            company = "Instil",
+            twitter = "GarthGilmour"
         )
         val JohnOReilly by Speaker(
             name = "John O'Reilly",
@@ -23,7 +25,8 @@ data class Speaker(
                     John is Kotlin GDE that has been developing Android apps since 2010.
                     He worked on server side Java applications in the 2000s and desktop clients in the 1990s....and is waiting in anticipation to see what the 20s bring!
                 """.trimIndent(),
-            company = "Neat"
+            company = "Neat",
+            twitter = "joreilly"
         )
         val KarinAleksandraMonoid by Speaker(
             name = "Karin-Aleksandra Monoid",
@@ -32,6 +35,7 @@ data class Speaker(
                     Currently she is specializing in Kotlin and advocating for functional programming (the good parts!).
                     She probably tried your favorite backend language on frontend (Scala.js and Kotlin/JS).
                 """.trimIndent(),
+            twitter = "paranoidmonoid"
         )
         val SebastianAigner by Speaker(
             name = "Sebastian Aigner",
@@ -48,7 +52,8 @@ data class Speaker(
                     I have been Kotlin Multiplatform QA from almost its beginning, have worked with the very first model (which was before Kotlin 1.3) and even met a bit headers/impl instead of well known expect/actual keywords.
                     For a long time I was a single QA there, now there are 2.5 of us, including me who leads the whole Kotlin QA team nowadays. 
                 """.trimIndent(),
-            company = "JetBrains"
+            company = "JetBrains",
+            twitter = "var_lynx"
         )
         val SalomonBrys by Speaker(
             name = "Salomon Brys",
@@ -58,7 +63,8 @@ data class Speaker(
                     He is a Kotlin GDE, Kotlin certified trainer, KUG Paris co-organiser, and conference speaker.
                     He also loves dancing Rock'n'Roll, playing boardgames, and flying small planes.
                 """.trimIndent(),
-            company = "KODEIN Koders"
+            company = "KODEIN Koders",
+            twitter = "salomonbrys"
         )
         val SergeiRybalkin by Speaker(
             name = "Sergei Rybalkin",
@@ -66,14 +72,16 @@ data class Speaker(
                     Software Engineer @ Facebook (Kotlin Foundation team)
                     Sergei has been working with JVM-based languages for more than 8 years. At Facebook, he is adopting and optimizing Kotlin for Android. Before joining Facebook Sergey worked on Kotlin adoption for the server-side and frameworks at Alibaba Group. Now he develops and maintains Kohttp, a Kotlin DSL HTTP client and Redex, an Android bytecode optimizer.
                 """.trimIndent(),
-            company = "Facebook"
+            company = "Facebook",
+            twitter = "lightdelay"
         )
         val SergeyRyabov by Speaker(
             name = "Sergey Ryabov",
             bio = """
                     Sergey is a developer from London who paused his nomadic lifestyle to feel the scale and peculiarities of working in Big Tech for himself. At Facebook, he works on Android UI Frameworks, Backend-Driven UI, and helps with the implementation of Kotlin into the largest mobile codebase. In the past, he was involved in the organization of the Kotlin User Group in St. Petersburg and the Android Academy schools in St. Petersburg and Moscow. Has been writing in Kotlin since traits.
                 """.trimIndent(),
-            company = "Facebook"
+            company = "Facebook",
+            twitter = "colriot"
         )
         val DmitryKandalov by Speaker(
             name = "Dmitry Kandalov",
@@ -94,7 +102,8 @@ data class Speaker(
             bio = """
                     Lead KMP at Deezer.
                 """.trimIndent(),
-            company = "Deezer"
+            company = "Deezer",
+            twitter = "geoffreymetais"
         )
         val NicolasFrankel by Speaker(
             name = "Nicolas Fränkel",
@@ -103,7 +112,8 @@ data class Speaker(
                     Usually working on Java/Java EE and Spring technologies, but with focused interests like Rich Internet Applications, Testing, CI/CD and DevOps. 
                     Currently working for Hazelcast. Also double as a trainer and triples as a book author.
                 """.trimIndent(),
-            company = "Hazelcast"
+            company = "Hazelcast",
+            twitter = "nicolas_frankel"
         )
         val ZanMarkan by Speaker(
             name = "Zan Markan",
@@ -113,7 +123,8 @@ data class Speaker(
                     He’s passionate about serverless technologies, mobile development, and developer experience. 
                     Outside of work, he enthuses over airplanes, craft beer, and the Oxford comma.
                 """.trimIndent(),
-            company = "CircleCI"
+            company = "CircleCI",
+            twitter = "zmarkan"
         )
         val ThomasPucci by Speaker(
             name = "Thomas Pucci",
@@ -121,7 +132,8 @@ data class Speaker(
                     Former React-Native expert, I jumped in Kotlin Android App development 3 years ago. I work at BAM as Head of Native and manage several developer teams working in Kotlin and Swift.
                     I share my thoughts about Kotlin and Android on Twitter and like to experiment in Jetpack Compose on my spare time !
                 """.trimIndent(),
-            company = "BAM"
+            company = "BAM",
+            twitter = "Thomas_Pucci"
         )
         val JulienSalvi by Speaker(
             name = "Julien Salvi",
@@ -132,21 +144,24 @@ data class Speaker(
                     In 2021, I became an Android GDE to continue my journey to always share and learn with the Android community. 
                     On my spare time, I am a world traveler and a beer lover always looking for the best IPAs!
                 """.trimIndent(),
-            company = "Aircall"
+            company = "Aircall",
+            twitter = "JulienSalvi"
         )
         val MartinBonnin by Speaker(
             name = "Martin Bonnin",
             bio = """
                     Parisian developer with a thing for type safe APIs and Chocolate Bugdroids 🍫
                 """.trimIndent(),
-            company = "ApolloGraphQL"
+            company = "ApolloGraphQL",
+            twitter = "MartinBonnin"
         )
         val GaetanZoritchak by Speaker(
             name = "Gaetan Zoritchak",
             bio = """
                     Early Adopter of Kotlin, I’m working on dataviz and charting multiplatform libraries
                 """.trimIndent(),
-            company = "data2viz"
+            company = "data2viz",
+            twitter = "gz_k"
         )
         val FilipBabic by Speaker(
             name = "Filip Babić",
@@ -154,7 +169,8 @@ data class Speaker(
                     Filip Babić is a senior Android developer from Croatia, and a Google Developer Expert for Android & Kotlin. 
                     He’s currently working on building awesome things with Jetpack Compose, teaching people about topics in Android and Kotlin and sharing his knowledge in various types of community engagement.
                 """.trimIndent(),
-            company = "Stream"
+            company = "Stream",
+            twitter = "filbabic"
         )
         val RomainBoisselle by Speaker(
             name = "Romain Boisselle",
@@ -163,7 +179,8 @@ data class Speaker(
                     He added a new string to its bow at KotlinConf 2018, where he met Salomon and started contributing to Kodein-DI, the very first Kotlin/Multiplatform community library.
                     He loves wild spaces, mountain hikes and climbing.
                 """.trimIndent(),
-            company = "KODEIN Koders"
+            company = "KODEIN Koders",
+            twitter = "romainbsl"
         )
         val DominiquePadiou by Speaker(
             name = "Dominique Padiou",
@@ -182,7 +199,8 @@ data class Speaker(
                 AppCode team, but still remember how it feels to be a mobile developer. 
                 I write code in Kotlin/Java so that people are comfortable writing in Swift/Objective-C.
             """.trimIndent(),
-            company = "JetBrains"
+            company = "JetBrains",
+            twitter = "aydarmukh"
         )
     }
 }

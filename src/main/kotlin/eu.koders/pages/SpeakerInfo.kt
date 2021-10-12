@@ -7,6 +7,7 @@ import eu.koders.data.sessions
 import eu.koders.utils.flexRow
 import eu.koders.utils.light
 import eu.koders.utils.portraitMobile
+import eu.koders.utils.ultraLight
 import kotlinx.css.*
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
@@ -47,7 +48,7 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
             css {
                 fontFamily = koders.piconExtended
                 fontWeight = FontWeight.w900
-                fontSize = 2.8.rem
+                fontSize = 2.5.rem
                 portraitMobile {
                     fontSize = 1.6.rem
                     textAlign = TextAlign.center
@@ -67,6 +68,21 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
                     }
                 }
                 +speaker.data.company
+                br {}
+
+                if (speaker.data.twitter.isNotEmpty()) {
+                    styledA("https://twitter.com/${speaker.data.twitter}") {
+                        css {
+                            fontWeight = FontWeight.ultraLight
+                            fontSize = 1.5.rem
+                            portraitMobile {
+                                fontSize = 1.2.rem
+                            }
+                        }
+                        +"@"
+                        +speaker.data.twitter
+                    }
+                }
             }
         }
 
