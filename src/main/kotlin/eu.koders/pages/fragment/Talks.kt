@@ -5,14 +5,13 @@ import eu.koders.data.Data
 import eu.koders.data.Session
 import eu.koders.data.Session.Talk.*
 import eu.koders.data.SessionDuration
+import eu.koders.data.Speaker
 import eu.koders.utils.flexColumn
 import eu.koders.utils.maxWidth
+import eu.koders.utils.portraitMobile
 import kotlinx.css.*
 import kotlinx.html.RP
-import react.RProps
-import react.child
-import react.functionalComponent
-import react.useState
+import react.*
 import styled.*
 
 val ScheduleHours = functionalComponent<RProps> {
@@ -23,7 +22,6 @@ val ScheduleHours = functionalComponent<RProps> {
 
     flexColumn {
         css {
-            width = 5.pct
             marginTop = 3.rem
             padding(horizontal = 0.5.rem)
             maxWidth(780) {
@@ -56,7 +54,7 @@ val ScheduleHours = functionalComponent<RProps> {
                 styledP {
                     css {
                         width = 5.rem
-                        +koders.chapo
+                        +koders.intertitre
                         color = Color.koders.orange
                         specific {
                             textAlign = TextAlign.right
@@ -216,49 +214,60 @@ val TalkCell = functionalComponent<TalkProps> { props ->
             }
         }
 
-        styledP {
-            css {
-                +koders.chapo
-                color = Color.koders.orange
-            }
 
-            +talk
-
-            if (speakers.isEmpty()) {
-                styledSpan {
-                    css {
-                        +koders.body
-                        color = Color.koders.krouille
-                    }
-
-                    when (duration.name) {
-                        SessionDuration.LONG.name -> +" - 45 min"
-                        SessionDuration.SHORT.name -> +" - 20 min"
-                    }
-                }
+        if (talk.equals("break", ignoreCase = true)) {
+            displayTalk(talk, speakers, duration)
+        } else {
+            styledA(href = "#/talk/${props.talk.id}") {
+                displayTalk(talk, speakers, duration)
             }
         }
+    }
+}
 
-        if (speakers.isNotEmpty()) {
-            styledP {
+fun RBuilder.displayTalk(talk: String, speakers: List<Data<Speaker>>, duration: SessionDuration) {
+    styledP {
+        css {
+            +koders.intertitre
+            color = Color.koders.orange
+        }
+
+        +talk
+
+        if (speakers.isEmpty()) {
+            styledSpan {
                 css {
                     +koders.body
                     color = Color.koders.krouille
                 }
 
-                speakers.forEachIndexed { index, speaker ->
-                    +speaker.data.name
-                    +if (speakers.lastIndex != index) {
-                        ", "
-                    } else {
-                        " - "
-                    }
-                }
-
                 when (duration.name) {
-                    SessionDuration.LONG.name -> +"45 min"
-                    SessionDuration.SHORT.name -> +"20 min"
+                    SessionDuration.LONG.name -> +" - 45 min"
+                    SessionDuration.SHORT.name -> +" - 20 min"
                 }
+            }
+        }
+    }
+
+    if (speakers.isNotEmpty()) {
+        styledP {
+            css {
+                +koders.body
+                color = Color.koders.krouille
+            }
+
+            speakers.forEachIndexed { index, speaker ->
+                +speaker.data.name
+                +if (speakers.lastIndex != index) {
+                    ", "
+                } else {
+                    " - "
+                }
+            }
+
+            when (duration.name) {
+                SessionDuration.LONG.name -> +"45 min"
+                SessionDuration.SHORT.name -> +"20 min"
             }
         }
     }

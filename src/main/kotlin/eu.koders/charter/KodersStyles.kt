@@ -87,9 +87,9 @@ object KodersStyles : StyleSheet("KodeinStyles", isStatic = true) {
         fontFamily = piconExtended
         fontWeight = FontWeight.medium
 
-        maxSize(980) { fontSize = 1.4.rem  }
-        maxSize(775) { fontSize = 1.3.rem  }
-        maxSize(570) { fontSize = 1.2.rem  }
+        maxSize(980) { fontSize = 1.3.rem  }
+        maxSize(775) { fontSize = 1.2.rem  }
+        maxSize(570) { fontSize = 1.1.rem  }
     }
 
     val body by css {
@@ -101,7 +101,7 @@ object KodersStyles : StyleSheet("KodeinStyles", isStatic = true) {
 
         maxSize(980) { fontSize = 1.2.rem  }
         maxSize(775) { fontSize = 1.1.rem  }
-        maxSize(570) { fontSize = 1.rem  }
+        maxSize(570) { fontSize = 0.9.rem  }
     }
 
     val link by css {

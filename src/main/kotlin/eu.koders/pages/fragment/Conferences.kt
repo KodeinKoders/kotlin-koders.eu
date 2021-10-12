@@ -265,9 +265,6 @@ val SpeakerLink = functionalComponent<SpeakerLinkProps> { props ->
                 fontFamily = koders.piconExtended
                 fontWeight = FontWeight.w900
                 fontSize = 1.1.rem
-                portraitMobile {
-                    fontSize = 1.2.rem
-                }
             }
             props.speaker.data.name.uppercase().split(" ").forEach {
                 +it

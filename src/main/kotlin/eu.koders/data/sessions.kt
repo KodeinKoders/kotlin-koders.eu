@@ -306,7 +306,7 @@ sealed class Session {
                 duration = LONG
             )
             val KMPLightningNode by Talk(
-                title = "Kotlin Multiplatform Mobile case study, with Phoenix and Bitcoin",
+                title = "KMM case study, with Phoenix and Bitcoin",
                 speakers = listOf(Speaker.DominiquePadiou),
                 abstract = {
                     p {
