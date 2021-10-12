@@ -185,7 +185,7 @@ data class Speaker(
         val DominiquePadiou by Speaker(
             name = "Dominique Padiou",
             bio = """
-                    Dominique is the developer behind Eclair Mobile, Phoenix and Strike. 
+                    Dominique is the developer behind Eclair Mobile and Phoenix. 
                     He believes that a lean and simple user experience is one Lightning's key challenges. 
                     He's determined to make Lightning easy to use and Bitcoin accessible to everyone.
                 """.trimIndent(),
