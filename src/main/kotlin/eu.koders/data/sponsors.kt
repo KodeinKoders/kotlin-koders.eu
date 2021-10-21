@@ -11,11 +11,16 @@ data class Sponsor(
         val Acinq by Sponsor(
             name = "Acinq",
             url = "https://acinq.co",
-            type = Type.GOLD
+            type = Type.PLATINUM
         )
         val Bam by Sponsor(
             name = "BAM",
-            url = "https://www.bam.tech/",
+            url = "https://www.bam.tech",
+            type = Type.GOLD
+        )
+        val Malt by Sponsor(
+            name = "Malt",
+            url = "https://www.malt.fr",
             type = Type.GOLD
         )
         val Data2viz by Sponsor(
