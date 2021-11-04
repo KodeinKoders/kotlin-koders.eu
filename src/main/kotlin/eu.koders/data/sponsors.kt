@@ -18,6 +18,11 @@ data class Sponsor(
             url = "https://www.bam.tech",
             type = Type.GOLD
         )
+        val KodeinKoders by Sponsor(
+            name = "KODEIN Koders",
+            url = "https://kodein.net",
+            type = Type.GOLD
+        )
         val Malt by Sponsor(
             name = "Malt",
             url = "https://www.malt.fr",
@@ -33,10 +38,10 @@ data class Sponsor(
             url = "https://instil.co",
             type = Type.SILVER
         )
-        val KodeinKoders by Sponsor(
-            name = "KODEIN Koders",
-            url = "https://kodein.net",
-            type = Type.GOLD
+        val JetBrains by Sponsor(
+            name = "JetBrains",
+            url = "https://www.jetbrains.com",
+            type = Type.SILVER
         )
     }
 }
