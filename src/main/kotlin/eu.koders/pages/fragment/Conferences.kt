@@ -196,7 +196,7 @@ val Conferences = functionalComponent<RProps> {
                 +koders.button
             }
 
-            +"BUY EARLY BIRD!"
+            +"BUY YOUR TICKET!"
         }
     }
 }
