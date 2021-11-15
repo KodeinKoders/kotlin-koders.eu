@@ -43,5 +43,10 @@ data class Sponsor(
             url = "https://www.jetbrains.com",
             type = Type.SILVER
         )
+        val Neopixl by Sponsor(
+            name = "neopixl",
+            url = "https://www.neopixl.com",
+            type = Type.SILVER
+        )
     }
 }
