@@ -5,6 +5,7 @@ import eu.koders.utils.*
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.css.*
+import kotlinx.css.properties.borderBottom
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.events.Event
 import react.*
@@ -23,6 +24,28 @@ val Venue = functionalComponent<RProps> {
 
         child(Photos)
         child(Map)
+    }
+
+    styledP {
+        css {
+            +koders.body
+            color = Color.koders.orange
+            specific {
+                textAlign = TextAlign.center
+            }
+            margin(LinearDimension.auto, 4.rem)
+
+            "a" {
+                color = Color.koders.krouille
+                borderBottom(0.05.rem, BorderStyle.solid, Color.koders.krouille)
+            }
+        }
+
+        +"Please read and respect the "
+        styledA(href = "/KK21_code_of_conduct.pdf") {
+            +"Code of Conduct"
+        }
+        +" for Kotlin KODERS 2021."
     }
 }
 
