@@ -1,16 +1,11 @@
 package eu.koders.pages.fragment
 
 import eu.koders.charter.koders
-import eu.koders.data.Data
-import eu.koders.data.Session
+import eu.koders.data.*
 import eu.koders.data.Session.Talk.*
-import eu.koders.data.SessionDuration
-import eu.koders.data.Speaker
 import eu.koders.utils.flexColumn
 import eu.koders.utils.maxWidth
-import eu.koders.utils.portraitMobile
 import kotlinx.css.*
-import kotlinx.html.RP
 import react.*
 import styled.*
 
@@ -69,14 +64,7 @@ val ScheduleHours = functionalComponent<RProps> {
 }
 
 val Auditorium = functionalComponent<RProps> {
-    val auditoriumSessions by useState(listOf(
-        Session.Talk.KeepKotlinFun, Session.Talk.http4KLiveCoding,
-        Session.Talk.Break, Session.Talk.KMPAtDeezer,
-        Session.Talk.KmmGraphQL, Session.Talk.LongBreak,
-        Session.Talk.NewInKMP, Session.Talk.ReliableWebServices,
-        Session.Talk.Break, Session.Talk.GradleKotlinDSL,
-        Session.Talk.CompilerLies,
-    ))
+    val auditoriumSessions by useState(Schedule.auditorium.data.sessions.map { it.talk })
 
     flexColumn {
         css {
@@ -105,10 +93,6 @@ val Auditorium = functionalComponent<RProps> {
             }
         }
 
-        child(TalkCell) {
-            attrs.talk = Session.Talk.Opening
-        }
-
         auditoriumSessions.forEach {
             child(TalkCell) {
                 attrs.talk = it
@@ -118,15 +102,7 @@ val Auditorium = functionalComponent<RProps> {
 }
 
 val Loft = functionalComponent<RProps> {
-    val loftSessions by useState(listOf(
-        Session.Talk.KotlinAdoptionAtScale, Session.Talk.KMPLightningNode,
-        Session.Talk.Break, Session.Talk.ArrowMetaSerialization,
-        Session.Talk.FunctionalInSpringBoot, Session.Talk.CICDWithKotlin,
-        Session.Talk.QuickStartKMP, Session.Talk.ExploringAdvancedCompose,
-        Session.Talk.AnimatingCompose, Session.Talk.Break,
-        Session.Talk.KotlinNativeFromTheTrenches,
-        Session.Talk.BridgingKotlinAndSwift,
-    ))
+    val loftSessions by useState(Schedule.loft.data.sessions.map { it.talk })
 
     flexColumn {
         css {

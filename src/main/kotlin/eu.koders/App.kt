@@ -1,6 +1,6 @@
 package eu.koders
 
-import eu.koders.charter.koders
+import eu.koders.components.Markdown
 import eu.koders.data.Session
 import eu.koders.pages.Page
 import eu.koders.utils.maxSize
@@ -60,6 +60,7 @@ external interface RouteProps : RProps {
 }
 
 fun main() {
+    console.log(Markdown)
     injectGlobal(appGlobalStyle)
 
     Session.load()

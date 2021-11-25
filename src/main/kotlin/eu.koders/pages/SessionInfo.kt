@@ -2,11 +2,14 @@ package eu.koders.pages
 
 import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
+import eu.koders.components.Markdown
 import eu.koders.data.Session
 import eu.koders.pages.fragment.SpeakerLink
 import eu.koders.utils.flexRow
 import eu.koders.utils.portraitMobile
 import kotlinx.css.*
+import kotlinx.css.properties.TextDecoration
+import kotlinx.css.properties.TextDecorationLine
 import react.RProps
 import react.child
 import react.dom.b
@@ -26,16 +29,18 @@ external interface SessionInfoProps : RProps {
 }
 
 val SessionInfo = functionalComponent<SessionInfoProps> { props ->
-    val session = when (props.type) {
+    val sessionData = when (props.type) {
         "talk" -> Session.Talk[props.id]
         "workshop" -> Session.Workshop[props.id]
         else -> null
     }
 
-    if (session == null) {
+    if (sessionData == null) {
         h2 { +"Unknown ${props.type}!" }
         return@functionalComponent
     }
+
+    val session = sessionData.data
 
     styledDiv {
         styledH2 {
@@ -48,14 +53,14 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
                     fontSize = 1.6.rem
                 }
             }
-            +session.data.title.uppercase()
+            +session.title.uppercase()
         }
         styledP {
             css {
                 +koders.body
                 color = Color.koders.korail
             }
-            when (session.data) {
+            when (session) {
                 is Session.Talk -> +"Thursday, December 2nd"
                 is Session.Workshop -> {
                     b { +"FULL DAY WORKSHOP" }
@@ -70,7 +75,7 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
             flexWrap = FlexWrap.wrap
         }
 
-        session.data.speakers
+        session.speakers
             .sortedBy { it.data.name }
             .forEach { speaker ->
                 child(SpeakerLink) {
@@ -87,15 +92,24 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
             "p" {
                 paddingBottom = 0.8.rem
             }
+            "a" {
+                textDecoration = TextDecoration(setOf(TextDecorationLine.underline))
+                color = Color.koders.krouille
+            }
         }
-        session.data.abstract(this)
+        Markdown {
+            +session.abstract
+        }
     }
 
-    if (session.data is Session.Workshop) {
+    if (session is Session.Workshop) {
         styledDiv {
             css {
                 +koders.body
                 color = Color.koders.dark
+                "p" {
+                    paddingBottom = 0.8.rem
+                }
             }
 
             styledP {
@@ -106,14 +120,18 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
                 }
                 +"Requirements:"
             }
-
-            session.data.requirements(this)
+            Markdown {
+                +session.requirements
+            }
         }
 
         styledDiv {
             css {
                 +koders.body
                 color = Color.koders.dark
+                "p" {
+                    paddingBottom = 0.8.rem
+                }
             }
 
             styledP {
@@ -126,7 +144,7 @@ val SessionInfo = functionalComponent<SessionInfoProps> { props ->
             }
 
             ul {
-                session.data.content.forEach {
+                session.content.forEach {
                     li { +it }
                 }
             }

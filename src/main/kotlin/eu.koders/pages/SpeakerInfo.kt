@@ -2,6 +2,7 @@ package eu.koders.pages
 
 import eu.koders.charter.KodersColors
 import eu.koders.charter.koders
+import eu.koders.components.Markdown
 import eu.koders.data.Speaker
 import eu.koders.data.sessions
 import eu.koders.utils.flexRow
@@ -88,13 +89,19 @@ val SpeakerInfo = functionalComponent<SpeakerInfoProps> { props ->
 
     }
 
-    styledP {
+    styledDiv {
         css {
             +koders.body
             color = KodersColors.dark
             textAlign = TextAlign.justify
+
+            "p" {
+                paddingBottom = 0.8.rem
+            }
         }
-        +speaker.data.bio
+        Markdown {
+            +speaker.data.bio
+        }
     }
 
     speaker.sessions().forEach { session ->

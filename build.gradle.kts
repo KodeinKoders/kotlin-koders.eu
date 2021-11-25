@@ -4,12 +4,14 @@ plugins {
     id("org.ajoberstar.grgit") version "4.1.0"
 }
 
-group = "eu.koders"
-version = "1.0-SNAPSHOT"
+allprojects {
+    group = "eu.koders"
+    version = "2021"
 
-repositories {
-    mavenCentral()
-    maven(url = "https://ajoberstar.github.io/bintray-backup/")
+    repositories {
+        mavenCentral()
+        maven(url = "https://ajoberstar.github.io/bintray-backup/")
+    }
 }
 
 kotlin {
@@ -28,10 +30,13 @@ kotlin {
             val styledVersion = "5.3.0"
             val kotlinWrapperVersion = "pre.213-kotlin-1.5.10"
 
+            implementation(project(":data"))
             implementation("org.jetbrains.kotlin-wrappers:kotlin-react:$reactVersion-$kotlinWrapperVersion")
             implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:$reactVersion-$kotlinWrapperVersion")
             implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:$reactRouterVersion-$kotlinWrapperVersion")
             implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:$styledVersion-$kotlinWrapperVersion")
+
+            implementation(npm("react-markdown", "7.1.0"))
         }
     }
 }
