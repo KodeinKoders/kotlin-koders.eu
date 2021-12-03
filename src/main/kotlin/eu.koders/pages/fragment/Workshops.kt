@@ -27,7 +27,7 @@ val Workshops = functionalComponent<RProps> {
             padding(horizontal = 1.rem)
         }
 
-        +"December 1st, venue in Paris (to be announced)"
+        +"It was on December 1st, 2021"
     }
 
     flexRow(justifyContent = JustifyContent.center, alignItems = Align.center) {
@@ -113,16 +113,16 @@ val Workshops = functionalComponent<RProps> {
             }
     }
 
-    styledA(
-        href = "https://www.billetweb.fr/kotlin-koders-2021",
-        target = "_blank"
-    ) {
-        css {
-            border = "none"
-            +koders.button
-            margin(LinearDimension.auto)
-        }
-
-        +"BUY A WORKSHOP TICKET!"
-    }
+//    styledA(
+//        href = "https://www.billetweb.fr/kotlin-koders-2021",
+//        target = "_blank"
+//    ) {
+//        css {
+//            border = "none"
+//            +koders.button
+//            margin(LinearDimension.auto)
+//        }
+//
+//        +"BUY A WORKSHOP TICKET!"
+//    }
 }

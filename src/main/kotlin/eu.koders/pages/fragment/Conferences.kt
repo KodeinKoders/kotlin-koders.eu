@@ -31,7 +31,7 @@ val Conferences = functionalComponent<RProps> {
             padding(horizontal = 1.rem)
         }
 
-        +"December 2nd, Pan Piper"
+        +"It was on December 2nd, 2021"
     }
     flexRow(justifyContent = JustifyContent.center, alignItems = Align.center) {
         css {
@@ -187,17 +187,17 @@ val Conferences = functionalComponent<RProps> {
                 gap = 1.rem
             }
         }
-        styledA(
-            href = "https://www.billetweb.fr/kotlin-koders-2021",
-            target = "_blank"
-        ) {
-            css {
-                border = "none"
-                +koders.button
-            }
-
-            +"BUY YOUR TICKET!"
-        }
+//        styledA(
+//            href = "https://www.billetweb.fr/kotlin-koders-2021",
+//            target = "_blank"
+//        ) {
+//            css {
+//                border = "none"
+//                +koders.button
+//            }
+//
+//            +"BUY YOUR TICKET!"
+//        }
     }
 }
 

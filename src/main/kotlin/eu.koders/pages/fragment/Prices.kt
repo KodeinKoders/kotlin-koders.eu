@@ -61,17 +61,17 @@ val Prices = functionalComponent<RProps> {
         }
     }
 
-    styledA(
-        href = "https://www.billetweb.fr/kotlin-koders-2021",
-        target = "_blank"
-    ) {
-        css {
-            border = "none"
-            +koders.button
-            margin(LinearDimension.auto)
-        }
-
-        +"BUY YOUR TICKET!"
-    }
+//    styledA(
+//        href = "https://www.billetweb.fr/kotlin-koders-2021",
+//        target = "_blank"
+//    ) {
+//        css {
+//            border = "none"
+//            +koders.button
+//            margin(LinearDimension.auto)
+//        }
+//
+//        +"BUY YOUR TICKET!"
+//    }
 
 }

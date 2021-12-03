@@ -49,19 +49,7 @@ val Header = functionalComponent<RProps> {
             }
 
             styledSpan {
-                +"December 1st & 2nd"
-            }
-            styledSpan {
-                css {
-                    padding(horizontal = 0.5.em)
-                    maxWidth(400) {
-                        display = Display.none
-                    }
-                }
-                +" - "
-            }
-            styledSpan {
-                +"Paris, France"
+                +"See you next year!"
             }
         }
 
@@ -146,18 +134,18 @@ val Header = functionalComponent<RProps> {
             +"A conference for all Kotlin developers."
         }
 
-        styledA(
-            href = "https://www.billetweb.fr/kotlin-koders-2021",
-            target = "_blank"
-        ) {
-            css {
-                border = "none"
-                +koders.button
-                margin(1.rem, LinearDimension.auto)
-            }
-
-            +"BUY YOUR TICKET!"
-        }
+//        styledA(
+//            href = "https://www.billetweb.fr/kotlin-koders-2021",
+//            target = "_blank"
+//        ) {
+//            css {
+//                border = "none"
+//                +koders.button
+//                margin(1.rem, LinearDimension.auto)
+//            }
+//
+//            +"BUY YOUR TICKET!"
+//        }
     }
 
     flexRow(JustifyContent.center) {
